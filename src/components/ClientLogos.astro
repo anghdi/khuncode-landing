@@ -1,0 +1,6 @@
+---
+interface Props { compact?: boolean; }
+const { compact = false } = Astro.props;
+const clients = [{ name: 'Rhodes Apparel', src: '/rhodes.jpeg', className: 'client-logo-rhodes', domain: 'rhodesapparel.id' }, { name: 'Georgios Women', src: '/georgios.png', className: 'client-logo-georgios', domain: 'georgioswomen.com' }, ...(!compact ? [{ name: 'The Gratitude Show', src: '/thegratitudeshow.png', className: 'client-logo-gratitude', domain: 'thegratitudeshow.com' }] : [])];
+---
+<section class="client-strip wrap" aria-label="Client KhunCode"><p>Beberapa brand yang<br />sudah bekerja bersama kami</p><div class="client-logos">{clients.map(client => <a class:list={['client-logo', client.className]} href={`https://${client.domain}`} target="_blank" rel="noopener noreferrer" aria-label={`Lihat website ${client.name}`}><img src={client.src} alt={client.name} width="160" height="64" loading="lazy" decoding="async" /></a>)}</div></section>

@@ -1,0 +1,90 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  campaign?: boolean;
+}
+
+const {
+  title = "KhunCode — Website untuk Brand & Bisnis",
+  description = "KhunCode membantu brand dan bisnis membuat website e-commerce, business website, ticketing, booking, dan custom website.",
+  campaign = false,
+  ogImage = "/logo.png"
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://khuncode.com');
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#104ee8" />
+
+    <!-- Google Fonts: Playfair Display + Plus Jakarta Sans + JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, canonicalURL)} />
+
+
+  </head>
+  <body class:list={{ "campaign-page": campaign }}>
+    <a class="skip-link" href="#main-content">Langsung ke konten</a>
+    <div class="site-shell">
+      <Header campaign={campaign} />
+      <main id="main-content">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+    {!campaign && <WhatsAppButton />}
+    <script>
+      const motion = matchMedia('(prefers-reduced-motion: reduce)');
+      if (!motion.matches && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.remove('reveal-pending');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.08 });
+        document.querySelectorAll('[data-reveal]').forEach(element => {
+          if (element.getBoundingClientRect().top > window.innerHeight) {
+            element.classList.add('reveal-pending');
+            observer.observe(element);
+          }
+        });
+        motion.addEventListener('change', () => {
+          if (motion.matches) {
+            observer.disconnect();
+            document.querySelectorAll('.reveal-pending').forEach(element => element.classList.remove('reveal-pending'));
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
+

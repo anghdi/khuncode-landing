@@ -1,0 +1,20 @@
+---
+interface Props { campaign?: boolean; }
+const { campaign = false } = Astro.props;
+const links = campaign ? [{name:'Hasil kerja',href:'/ecommerce#hasil-kerja'},{name:'Kontak',href:'/kontak'}] : [{name:'Layanan',href:'/layanan'},{name:'Portfolio',href:'/portfolio'},{name:'Harga',href:'/harga'},{name:'Proses',href:'/#proses'},{name:'Tentang',href:'/#tentang'},{name:'Kontak',href:'/kontak'}];
+const waLink = `https://wa.me/6285117304509?text=${encodeURIComponent(campaign ? 'Halo KhunCode, saya ingin diskusi website e-commerce untuk brand saya.' : 'Halo KhunCode, saya ingin mendiskusikan project website.')}`;
+---
+<header class="site-header"><div class="wrap header-inner">
+  <a class="wordmark" href="/" aria-label="KhunCode — Beranda">khun<span>code</span></a>
+  <nav class="desktop-nav" aria-label="Navigasi utama">{links.map(link => <a href={link.href} aria-current={Astro.url.pathname === link.href ? 'page' : undefined}>{link.name}</a>)}</nav>
+  <a class="header-cta" href={waLink} target="_blank" rel="noopener noreferrer">Diskusikan Project <span aria-hidden="true">↗</span></a>
+  <details class="mobile-menu" id="mobile-menu"><summary aria-label="Menu navigasi"><span></span><span></span></summary><nav class="mobile-menu-panel" aria-label="Navigasi mobile">{links.map(link => <a href={link.href} aria-current={Astro.url.pathname === link.href ? 'page' : undefined}>{link.name}</a>)}<a class="mobile-contact" href={waLink} target="_blank" rel="noopener noreferrer">Diskusikan Project ↗</a></nav></details>
+</div></header>
+<script>
+  const menu = document.querySelector<HTMLDetailsElement>('#mobile-menu');
+  const close = () => { if (menu) menu.open = false; };
+  menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', close));
+  document.addEventListener('keydown', event => { if (event.key === 'Escape' && menu?.open) { close(); menu.querySelector('summary')?.focus(); } });
+  document.addEventListener('click', event => { if (event.target instanceof Node && !menu?.contains(event.target)) close(); });
+  matchMedia('(min-width: 1100px)').addEventListener('change', event => { if (event.matches) close(); });
+</script>

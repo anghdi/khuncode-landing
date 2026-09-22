@@ -1,0 +1,140 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const waNumber = "6285117304509";
+const waBaseUrl = `https://wa.me/${waNumber}`;
+
+const portfolioItems = [
+  {
+    name: "Rhodes Apparel",
+    image: "/rhodes.jpeg",
+    category: "Fashion E-Commerce",
+    domain: "rhodesapparel.id",
+    description: "Website online store untuk Rhodes Apparel. Memudahkan pelanggan melihat katalog pakaian, varian warna/ukuran, serta pemesanan cepat via WhatsApp.",
+    features: [
+      "Catalog Layout Clean & Responsive",
+      "Product Detail Varian Color & Size",
+      "Quick Checkout via WhatsApp Integrasi",
+      "Desain Nyaman di Smartphone"
+    ]
+  },
+  {
+    name: "Georgios Women",
+    image: "/georgios.png",
+    category: "Fashion E-Commerce",
+    domain: "georgioswomen.com",
+    description: "Website e-commerce untuk fashion brand Georgios Women. Mengedepankan tampilan produk yang elegan, kategori rapi, dan kemudahan belanja.",
+    features: [
+      "Visual Typography High-End",
+      "Kategori Produk Terstruktur",
+      "Optimasi Gambar & Loading Cepat",
+      "Mobile First Shopping Flow"
+    ]
+  },
+  {
+    name: "The Gratitude Show",
+    image: "/thegratitudeshow.png",
+    category: "Event & Ticketing",
+    domain: "thegratitudeshow.com",
+    description: "Website event dan sistem ticketing untuk The Gratitude Show. Menyajikan informasi acara, rincian tiket, dan alur pemesanan bagi pengunjung.",
+    features: [
+      "Landing Page Event Interaktif",
+      "Jadwal & Lineup Highlight",
+      "Alur Reservasi Tiket",
+      "Integrasi Kontak Informasi"
+    ]
+  }
+];
+---
+
+<Layout 
+  title="Portfolio Project Website — KhunCode"
+  description="Lihat daftar website e-commerce, fashion store, dan ticketing yang telah berhasil dikembangkan oleh KhunCode."
+>
+  <section class="py-16 sm:py-24 bg-studio-grid relative">
+    <div class="wrap inner-page">
+      
+      <!-- Header -->
+      <div class="max-w-3xl mb-16 space-y-3">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-50 border border-blue-200 text-[#104ee8] text-xs font-mono font-semibold">
+          <span>Studi Kasus & Portfolio</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight">
+          Project yang Sudah Kami Kerjakan
+        </h1>
+        <p class="text-base text-slate-600 leading-relaxed">
+          Beberapa website yang telah kami bangun untuk brand dan bisnis. Setiap website dirancang sesuai dengan identitas dan kebutuhan spesifik setiap brand.
+        </p>
+      </div>
+
+      <!-- Portfolio Grid Showcase -->
+      <div class="space-y-8">
+        {portfolioItems.map((item) => (
+          <div class="bento-card p-5 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <div class="lg:col-span-7 space-y-4">
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="px-2.5 py-1 text-xs font-mono font-semibold rounded-md bg-blue-50 text-[#104ee8] border border-blue-200">
+                  {item.category}
+                </span>
+                <span class="text-xs font-mono text-slate-500 bg-slate-100 px-2.5 py-1 rounded border border-slate-200">
+                  {item.domain}
+                </span>
+              </div>
+
+              <h2 class="text-2xl sm:text-3xl font-bold text-slate-900">
+                {item.name}
+              </h2>
+
+              <p class="text-slate-600 text-sm leading-relaxed">
+                {item.description}
+              </p>
+
+              <div class="pt-2 space-y-2">
+                <div class="text-[11px] font-mono font-semibold text-slate-400 uppercase tracking-wider">Highlight Fitur:</div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {item.features.map(f => (
+                    <div class="flex items-center gap-2 text-sm text-slate-700">
+                      <svg class="w-3.5 h-3.5 text-emerald-600 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>
+                      </svg>
+                      <span>{f}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div class="pt-3">
+                <a
+                  href={`${waBaseUrl}?text=${encodeURIComponent(`Halo KhunCode, saya tertarik dengan konsep portfolio ${item.name} (${item.category}) dan ingin mendiskusikan project serupa.`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-track-cta="whatsapp"
+                  data-location={`portfolio-${item.name.toLowerCase().replace(/\s+/g, '-')}`}
+                  class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold text-white bg-[#104ee8] hover:bg-[#0c3cbb] rounded-xl shadow-sm transition-all"
+                >
+                  <span>Buat Website Seperti Ini →</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Preview Card Box -->
+            <div class="lg:col-span-5">
+              <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
+                <div class="flex items-center justify-between gap-3 flex-wrap text-xs text-slate-500 border-b border-slate-200 pb-3">
+                  <span class="font-mono text-[#104ee8]">{item.domain}</span>
+                  <a href={`https://${item.domain}`} target="_blank" rel="noopener noreferrer" class="text-link">Lihat website ↗</a>
+                </div>
+                <div class="h-48 rounded-xl bg-white border border-slate-200 flex flex-col justify-center items-center text-center p-4 shadow-sm">
+                  <img src={item.image} alt={`Logo ${item.name}`} width="280" height="160" loading="lazy" decoding="async" class="portfolio-client-image" />
+                </div>
+              </div>
+            </div>
+
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+</Layout>

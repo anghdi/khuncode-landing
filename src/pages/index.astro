@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+const wa = (message: string) => `https://wa.me/6285117304509?text=${encodeURIComponent(message)}`;
+const contact = wa('Halo KhunCode, saya ingin mendiskusikan website untuk brand saya.');
+const projects = [
+  { name: 'Rhodes Apparel', category: 'Fashion E-Commerce', image: '/rhodes.jpeg', domain: 'rhodesapparel.id', tone: 'rhodes', description: 'Rumah online untuk koleksi dan karakter sebuah brand.' },
+  { name: 'Georgios Women', category: 'Fashion E-Commerce', image: '/georgios.png', domain: 'georgioswomen.com', tone: 'georgios', description: 'Pengalaman belanja yang berangkat dari identitas brand.' },
+  { name: 'The Gratitude Show', category: 'Event & Ticketing', image: '/thegratitudeshow.png', domain: 'thegratitudeshow.com', tone: 'gratitude', description: 'Informasi acara dan pemesanan tiket dalam satu tempat.' },
+];
+const plans = [
+  { name: 'Business Website', price: '1.500.000', desc: 'Untuk memperkenalkan bisnis dengan lebih baik.', features: ['Hingga 5 halaman', 'Tampilan mobile & tombol WhatsApp', 'Basic SEO & deployment'] },
+  { name: 'E-Commerce', price: '2.500.000', desc: 'Untuk mulai berjualan melalui website sendiri.', features: ['Katalog, detail & kategori produk', 'Keranjang & checkout sederhana', 'Mobile, WhatsApp, SEO & deployment'] },
+  { name: 'Booking & Ticketing', price: '3.000.000', desc: 'Untuk layanan reservasi dan penyelenggara event.', features: ['Alur booking atau tiket', 'Fitur sesuai kebutuhan project', 'Tampilan mobile & deployment'] },
+  { name: 'Custom Website', price: '4.000.000', desc: 'Untuk kebutuhan dan alur bisnis yang spesifik.', features: ['Perencanaan alur website', 'Desain & fitur sesuai kebutuhan', 'Testing & deployment'] },
+];
+---
+<Layout>
+<div class="compact-landing">
+  <section class="home-hero wrap">
+    <div class="hero-copy">
+      <p class="eyebrow hero-enter">KHUNCODE / WEB DEVELOPMENT STUDIO</p>
+      <h1 class="hero-enter">Website yang<br />terasa <em>seperti<br />brand kamu.</em></h1>
+      <p class="hero-description hero-enter">Kami membantu brand dan bisnis membangun website yang rapi, nyaman digunakan, dan sesuai kebutuhan. Dari toko online sampai ide yang lebih spesifik.</p>
+      <div class="hero-actions hero-enter"><a class="button" href={contact} target="_blank" rel="noopener noreferrer" data-track-cta="whatsapp" data-location="hero">Diskusikan Project <span aria-hidden="true">↗</span></a><a class="text-link" href="#portfolio">Lihat hasil kerja <span aria-hidden="true">↓</span></a></div>
+      <p class="hero-note hero-enter">E-commerce · Business website · Booking & ticketing</p>
+    </div>
+    <figure class="hero-visual hero-enter">
+      <div class="hero-photo"><img src="/studio-hero.webp" srcset="/studio-hero-mobile.webp 640w, /studio-hero.webp 1536w" sizes="(max-width: 767px) calc(100vw - 40px), 48vw" alt="Ilustrasi meja kerja brand fashion dengan laptop toko online, bahan pakaian, dan kemasan pengiriman" width="1536" height="1024" fetchpriority="high" /></div>
+      <figcaption><span>Dari karakter brand, menjadi pengalaman digital.</span><span aria-hidden="true">01 / STUDIO</span></figcaption>
+    </figure>
+  </section>
+
+
+
+  <section id="portfolio" class="section wrap">
+    <div class="section-heading" data-reveal><div><p class="eyebrow">01 / PILIHAN PROJECT</p><h2>Beberapa hasil kerja kami.</h2></div><div class="heading-aside"><a class="text-link" href="/portfolio">Semua portfolio <span aria-hidden="true">↗</span></a></div></div>
+    <div class="project-grid">{projects.map((project, i) => <article class="project" data-reveal style={`--delay: ${i * 80}ms`}><a class={`project-art ${project.tone}`} href={`https://${project.domain}`} target="_blank" rel="noopener noreferrer" aria-label={`Lihat website ${project.name}`}><img src={project.image} alt={`Logo ${project.name}`} width="280" height="220" loading="lazy" /><span class="project-arrow" aria-hidden="true">↗</span></a><div class="project-meta"><p>{project.category}</p><span>0{i + 1}</span></div><h3><a href={`https://${project.domain}`} target="_blank" rel="noopener noreferrer">{project.name}</a></h3></article>)}</div>
+  </section>
+
+  <section id="harga" class="section wrap compact-offers">
+    <div class="section-heading"><div><p class="eyebrow">LAYANAN & HARGA AWAL</p><h2>Apa yang ingin kamu bangun?</h2></div><a class="text-link" href="/harga">Detail paket ↗</a></div>
+    <div class="compact-plan-grid">{plans.map((plan,i) => <a class:list={['compact-plan',{'compact-plan-featured': i === 1}]} href={i === 1 ? '/ecommerce' : '/harga'}><div><h3>{plan.name}</h3><p>{plan.desc}</p></div><div class="compact-plan-price"><span>Mulai dari</span><strong>Rp{plan.price}</strong><span aria-hidden="true">↗</span></div></a>)}</div>
+    <p class="pricing-note">Harga final sesuai lingkup project. Domain, hosting, dan layanan pihak ketiga terpisah.</p>
+    <div class="compact-studio"><div id="tentang"><h3>Tentang KhunCode</h3><p>Studio web untuk brand dan bisnis, dengan fokus e-commerce. Dibuat sesuai identitas kamu, nyaman di HP, dan dibantu sampai tayang.</p></div><div id="proses"><h3>Proses yang jelas</h3><p>Diskusi → Perencanaan & desain → Development & testing → Launch.</p><a class="text-link" href="/layanan">Kenali layanan kami ↗</a></div></div>
+  </section>
+
+  <section class="final-cta"><div class="wrap" data-reveal><p class="eyebrow">PUNYA IDE UNTUK WEBSITE?</p><h2>Punya project? <em>Mari diskusi.</em></h2><div class="final-cta-bottom"><p>Ceritakan bisnismu dan apa yang ingin kamu bangun.<br />Kita mulai dari sana.</p><a class="button button-light" href={contact} target="_blank" rel="noopener noreferrer" data-track-cta="whatsapp" data-location="final-cta">Mulai diskusi <span aria-hidden="true">↗</span></a></div></div></section>
+</div>
+</Layout>

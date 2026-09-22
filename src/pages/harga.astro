@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const waNumber = "6285117304509";
+const waBaseUrl = `https://wa.me/${waNumber}`;
+
+const pricingDetail = [
+  {
+    title: "Business Website",
+    price: "Rp1.500.000",
+    description: "Untuk bisnis yang membutuhkan website profesional sebagai media informasi resmi.",
+    popular: false,
+    cta: "Diskusikan Business Website",
+    waMsg: "Halo KhunCode, saya tertarik paket Business Website mulai dari Rp1.500.000.",
+    features: [
+      "Hingga 5 halaman website",
+      "Tampilan mobile responsive",
+      "Tombol WhatsApp integrasi",
+      "Basic SEO setup",
+      "Deployment ke hosting"
+    ]
+  },
+  {
+    title: "E-Commerce Website",
+    price: "Rp2.500.000",
+    description: "Untuk brand dan bisnis yang ingin memiliki toko online sendiri secara mandiri.",
+    popular: true,
+    cta: "Diskusikan E-Commerce",
+    waMsg: "Halo KhunCode, saya tertarik paket E-Commerce Website mulai dari Rp2.500.000.",
+    features: [
+      "Halaman utama",
+      "Katalog produk",
+      "Detail produk",
+      "Kategori produk",
+      "Keranjang belanja",
+      "Checkout sederhana",
+      "Tombol WhatsApp",
+      "Tampilan mobile",
+      "Basic SEO",
+      "Deployment ke hosting"
+    ]
+  },
+  {
+    title: "Booking & Ticketing",
+    price: "Rp3.000.000",
+    description: "Untuk bisnis atau event yang membutuhkan sistem booking, reservasi, atau tiket.",
+    popular: false,
+    cta: "Diskusikan Booking & Ticketing",
+    waMsg: "Halo KhunCode, saya tertarik paket Booking & Ticketing mulai dari Rp3.000.000.",
+    features: [
+      "Halaman detail event / reservasi",
+      "Form booking interaktif",
+      "Sistem pemesanan tiket",
+      "Alur konfirmasi sesuai kebutuhan",
+      "Fitur disesuaikan kebutuhan"
+    ]
+  },
+  {
+    title: "Custom Website",
+    price: "Rp4.000.000",
+    description: "Untuk kebutuhan website dengan fitur atau alur bisnis yang lebih spesifik.",
+    popular: false,
+    cta: "Ceritakan Kebutuhanmu",
+    waMsg: "Halo KhunCode, saya tertarik konsultasi Custom Website mulai dari Rp4.000.000.",
+    features: [
+      "Alur bisnis & fitur khusus",
+      "Desain UI/UX custom brand",
+      "Skalabilitas & integrasi",
+      "Pengembangan sesuai kebutuhan",
+      "Publikasi ke hosting"
+    ]
+  }
+];
+---
+
+<Layout title="Estimasi Harga Website — KhunCode" description="Harga awal business website Rp1.500.000 dan e-commerce Rp2.500.000. Lihat cakupan dan diskusikan kebutuhanmu.">
+  <section class="section wrap inner-page"><header class="page-heading"><p class="eyebrow">ESTIMASI HARGA</p><h1>Rencanakan website.<br /><em>Sesuaikan anggaran.</em></h1><p>Harga awal untuk membantu perencanaan kamu. Lingkup, biaya final, dan jadwal disepakati sebelum pengerjaan.</p></header>
+    <div class="pricing-grid detail-pricing">{pricingDetail.map((plan,i) => <article class:list={['price-card',{'price-featured':plan.popular}]}><p class="plan-label">{plan.popular ? 'FOKUS UTAMA KAMI' : `0${i+1} / WEBSITE`}</p><h2>{plan.title}</h2><p class="plan-desc">{plan.description}</p><div class="price"><span>Mulai dari</span><strong>{plan.price}</strong></div><ul>{plan.features.map(f => <li>{f}</li>)}</ul><a class="button" href={`${waBaseUrl}?text=${encodeURIComponent(plan.waMsg)}`} target="_blank" rel="noopener noreferrer">Diskusikan project ↗</a></article>)}</div>
+    <aside class="pricing-terms"><h2>Sebelum menentukan paket</h2><p>Harga final menyesuaikan halaman, fitur, dan kebutuhan project. Domain, hosting, dan layanan pihak ketiga belum termasuk, kecuali disepakati secara khusus.</p><p>Untuk booking, ticketing, dan custom website, daftar fitur menjadi bahan diskusi awal. Integrasi serta alur final ditentukan bersama.</p></aside>
+    <aside class="next-step"><div><h2>Belum tahu harus mulai dari mana?</h2><p>Ceritakan jenis bisnis dan website yang kamu bayangkan.</p></div><a class="text-link" href="/kontak">Mulai diskusi ↗</a></aside>
+  </section>
+</Layout>
