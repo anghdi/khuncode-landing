@@ -1,5 +1,11 @@
 # Hero asset
 
+## Product card variation
+
+Output: `public/blue-bag-editorial.webp` (480 × 480). Mode: built-in imagegen, new generation. Original PNG retained.
+
+Prompt: Photorealistic editorial product photograph for a small ecommerce card. One sculptural cobalt blue nylon shoulder bag with a short curved handle, ivory folded cotton fabric beside it, on a warm off-white studio plinth. Entire bag visible, centered with ample breathing room, soft natural window light and realistic shadows, premium independent fashion brand feel, tactile fabric details. Square composition. No person, no text, no logos, no watermark, no UI.
+
 ## Homepage editorial storefront (latest)
 
 Output: `public/fashion-editorial.webp` (640 × 960, WebP quality 85).

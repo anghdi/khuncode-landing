@@ -630,4 +630,6 @@ Homepage tetap ringkas: tiga kartu dengan harga, link rincian, dan CTA. Halaman 
 
 ## Layout referensi terbaru — September 2026
 
+Penyempurnaan terbaru: kartu foto kecil memakai foto tas biru tersendiri. Komposisi desktop dibuat asimetris, ponsel miring ringan dan latar panel bersudut organik menggantikan busur konsentris. Kartu bergerak melayang 8px dengan siklus 7–9 detik dan animasi dinonaktifkan untuk reduced motion. Ini menggantikan batasan animasi masuk saja untuk kartu hero.
+
 Arahan ini menggantikan komposisi hero split dan portfolio besar di atas. Homepage memakai headline serif terpusat, dua CTA pill, mockup ponsel dengan foto fashion ilustratif, kartu fitur pendukung, dan lengkung biru muda. Sesudah hero tampil satu baris logo client asli, ringkasan paket, lalu CTA penutup. Di mobile dua kartu dekoratif disembunyikan; ukuran mockup dan kartu tersisa disesuaikan. Animasi masuk berjalan sekali dan menghormati reduced motion. Halaman pendukung tetap menyediakan detail tanpa memperpanjang beranda.
