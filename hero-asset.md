@@ -1,5 +1,15 @@
 # Hero asset
 
+## Homepage editorial storefront (latest)
+
+Output: `public/fashion-editorial.webp` (640 × 960, WebP quality 85).
+
+Mode: new image generation with built-in imagegen. Used inside a CSS/HTML phone mockup. Illustrative fictional storefront, not a client testimonial. Original PNG retained in the generated-images directory.
+
+Prompt: Portrait fashion editorial photograph for a fictional ecommerce storefront demo. Adult Indonesian woman with shoulder-length dark hair, relaxed pale sky-blue cotton shirt over ivory tank top, cream tailored trousers. Three-quarter portrait, calm natural smile, candid movement. Cool off-white studio wall, morning window shadow, blue and ivory palette. Independent fashion label editorial, natural skin and fabric detail, soft daylight, breathing room above head. Portrait 2:3. No text, logo, watermark, UI, or phone frame. Illustrative fashion photo, not a testimonial.
+
+## Earlier studio asset
+
 Output: `public/studio-hero.webp` (1536 × 1024, WebP quality 85).
 
 Generated with the built-in imagegen tool. This is an illustrative studio scene, not a client project photograph. Original client logos remain unchanged.

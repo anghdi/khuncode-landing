@@ -9,12 +9,14 @@ interface Props {
   description?: string;
   ogImage?: string;
   campaign?: boolean;
+  referenceHome?: boolean;
 }
 
 const {
   title = "KhunCode — Website untuk Brand & Bisnis",
   description = "KhunCode membantu brand dan bisnis membuat website e-commerce, business website, ticketing, booking, dan custom website.",
   campaign = false,
+  referenceHome = false,
   ogImage = "/logo.png"
 } = Astro.props;
 
@@ -50,7 +52,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://khuncode
 
 
   </head>
-  <body class:list={{ "campaign-page": campaign }}>
+  <body class:list={{ "campaign-page": campaign, "reference-home-page": referenceHome }}>
     <a class="skip-link" href="#main-content">Langsung ke konten</a>
     <div class="site-shell">
       <Header campaign={campaign} />

@@ -28,9 +28,9 @@ Biru logo adalah satu-satunya warna aksen utama UI. Warna foto dan logo client t
 
 ### Tipografi & Layout
 
-* Gunakan Plus Jakarta Sans untuk heading, isi, dan tombol.
-* Headline hero memakai sans-serif tegas dengan penekanan biru, bukan serif italic.
-* Layout hero: pesan utama dan dua CTA di kiri, foto konteks e-commerce di kanan; ditumpuk di mobile.
+* Gunakan Plus Jakarta Sans untuk isi dan tombol; headline homepage memakai Georgia untuk nuansa editorial sesuai referensi gambar terbaru.
+* Layout hero homepage terpusat: headline dua baris, deskripsi, dua CTA pill, lalu mockup ponsel dengan kartu fitur di sekelilingnya.
+* Gunakan foto fashion ilustratif pada mockup toko; kartu menjelaskan katalog, checkout, dan pemesanan WhatsApp tanpa angka hasil penjualan rekaan.
 * Maksimum lebar konten 1240px, gutter desktop 48px dan mobile 20px.
 * Jarak antarsection utama sekitar 100px di desktop dan 65px di mobile.
 * Radius tombol 9–10px, kartu 14–16px, visual utama 20–22px.
@@ -41,7 +41,7 @@ Biru logo adalah satu-satunya warna aksen utama UI. Warna foto dan logo client t
 ### Konten & Konversi
 
 * CTA primer: **Diskusikan Project**, menuju WhatsApp.
-* CTA sekunder hero: **Lihat hasil kerja**, menuju portfolio.
+* CTA sekunder hero homepage: **Lihat paket website**, menuju ringkasan harga.
 * Tampilkan portfolio sebelum daftar layanan untuk memperkenalkan hasil kerja.
 * Paket e-commerce diberi penekanan visual sebagai fokus studio, tanpa klaim paling laris.
 * Tidak memakai rating, jumlah client, atau klaim peningkatan penjualan yang belum memiliki bukti.
@@ -245,70 +245,58 @@ Website dibantu sampai siap dipublikasikan ke hosting.
 
 # HARGA
 
-## Estimasi Harga
+Sumber data implementasi: `src/data/packages.ts`. Tiga paket berikut menggantikan seluruh penawaran harga sebelumnya.
 
-Harga di bawah ini adalah harga awal.
+### Starter Store — Rp1.500.000
 
-Harga final menyesuaikan kebutuhan project.
+Untuk UMKM atau brand yang baru mulai jualan online. Customer melihat produk lalu melanjutkan pesanan melalui WhatsApp; paket ini belum memiliki checkout otomatis.
 
-### Business Website
+* Homepage toko, katalog, dan detail produk
+* Setup awal maksimal ±10 produk
+* Kategori sederhana
+* Tombol Pesan via WhatsApp
+* Responsive mobile & desktop
+* Harga, foto, dan deskripsi produk
+* Tentang brand, kontak, dan social media
+* Basic SEO dan SSL / HTTPS
+* 1x revisi
 
-**Mulai dari Rp1.500.000**
+### Online Store — Rp2.500.000
 
-Umumnya mencakup:
+Untuk brand yang ingin customer berbelanja langsung melalui website.
 
-* hingga 5 halaman
-* tampilan mobile
-* tombol WhatsApp
-* basic SEO
-* deployment ke hosting
+* Semua fitur Starter Store
+* Setup awal maksimal ±30 produk
+* Shopping cart dan checkout
+* Data customer, variasi, serta stok produk
+* Kategori, pencarian, dan filter sederhana
+* Ongkir / pengiriman dasar
+* Integrasi pembayaran sesuai layanan yang digunakan
+* Halaman konfirmasi pesanan
+* Admin sederhana untuk produk dan pesanan
+* 2x revisi
 
-**[Diskusikan Business Website →]**
+### Custom Commerce — Mulai Rp4.000.000
 
-### E-Commerce Website
+Untuk brand dengan proses jualan yang lebih kompleks.
 
-**Mulai dari Rp2.500.000**
+* Semua fitur Online Store
+* Banyak kategori / produk
+* Voucher, diskon otomatis, dan wishlist
+* Akun, riwayat pesanan, serta dashboard customer
+* Dashboard admin custom
+* Multi-level harga, reseller, dan membership
+* Integrasi kurir, payment gateway khusus, marketplace, ERP, atau API
+* Notifikasi WhatsApp dan email transaksi
+* Booking + pembayaran, subscription, atau fitur custom lain
 
-Umumnya mencakup:
+Daftar fitur Custom Commerce adalah pilihan sesuai scope. Harga final ditentukan dari fitur, integrasi, jumlah produk, dan kebutuhan project.
 
-* halaman utama
-* katalog produk
-* detail produk
-* kategori produk
-* keranjang belanja
-* checkout sederhana
-* tombol WhatsApp
-* tampilan mobile
-* basic SEO
-* deployment ke hosting
+**Domain:** terpisah sesuai harga domain yang dipilih client.
 
-Kebutuhan tambahan akan dibahas sebelum project dimulai.
+**Deploy + maintenance:** Rp100.000/bulan untuk semua paket.
 
-**[Diskusikan E-Commerce →]**
-
-### Booking & Ticketing
-
-**Mulai dari Rp3.000.000**
-
-Harga menyesuaikan kebutuhan dan fitur project.
-
-**[Diskusikan Booking & Ticketing →]**
-
-### Custom Website
-
-**Mulai dari Rp4.000.000**
-
-Harga menyesuaikan kebutuhan dan tingkat kompleksitas project.
-
-**[Ceritakan Kebutuhanmu →]**
-
----
-
-# CATATAN HARGA
-
-Harga final ditentukan setelah kebutuhan project dibahas.
-
-Domain, hosting, dan layanan pihak ketiga tidak termasuk dalam biaya development kecuali disebutkan secara khusus.
+Starter Store dan Online Store adalah harga paket; Custom Commerce adalah harga awal. Tampilkan biaya bulanan dan domain dekat paket, bukan hanya di footer.
 
 ---
 
@@ -457,7 +445,7 @@ Jasa pembuatan website e-commerce untuk brand dan bisnis yang ingin memiliki tok
 
 Website e-commerce untuk brand yang ingin memiliki tempat jualan sendiri secara online.
 
-**Mulai dari Rp2.500.000**
+**Custom mulai dari Rp4.000.000**
 
 **[Diskusikan Project →]**
 
@@ -512,7 +500,7 @@ Website siap digunakan.
 
 Ceritakan kebutuhan website untuk brand kamu.
 
-**Website E-Commerce mulai dari Rp2.500.000**
+**Website E-Commerce (Custom) mulai dari Rp4.000.000**
 
 **[Diskusikan via WhatsApp →]**
 
@@ -597,7 +585,7 @@ Data ini nantinya digunakan untuk mengevaluasi performa website dan landing page
 ## Pembagian Halaman
 
 * `/`: pengenalan studio dan seluruh layanan.
-* `/ecommerce`: tujuan iklan khusus pembuatan toko online. Pesan iklan harus sesuai penawaran halaman: website e-commerce mulai Rp2.500.000, bukan jaminan kenaikan penjualan.
+* `/ecommerce`: tujuan iklan khusus pembuatan toko online. Pesan iklan harus sesuai penawaran halaman: website e-commerce Custom mulai Rp4.000.000, bukan jaminan kenaikan penjualan.
 * `/kontak`: form ringkas yang membuka WhatsApp; tidak mengirim data ke server KhunCode.
 
 ## Alur Konversi
@@ -635,3 +623,11 @@ Arahan terbaru menggantikan struktur homepage panjang di atas. Utamakan penyampa
 * Detail paket dan layanan tersedia di `/harga` dan `/layanan`; kontak di `/kontak`.
 * Mobile: portfolio berbentuk baris thumbnail dan nama; harga berupa baris ringkas. Tetap tampilkan harga awal dan pengecualian biaya.
 * Jarak section landing sekitar 56px desktop dan 38px mobile. Jangan mengecilkan teks hanya untuk mengurangi tinggi halaman.
+
+## Revisi paket terbaru
+
+Homepage tetap ringkas: tiga kartu dengan harga, link rincian, dan CTA. Halaman harga memakai disclosure native untuk fitur lengkap. Paket aktif: Starter Store Rp1.500.000 (1x revisi), Online Store Rp2.500.000 (2x revisi), dan Custom Commerce mulai Rp4.000.000 (scope disepakati). Domain terpisah; deploy + maintenance Rp100.000/bulan. Data bersama di `src/data/packages.ts` menjadi sumber penawaran halaman beranda, layanan, dan harga. Meta Pixel dan GA4 tetap ditunda.
+
+## Layout referensi terbaru — September 2026
+
+Arahan ini menggantikan komposisi hero split dan portfolio besar di atas. Homepage memakai headline serif terpusat, dua CTA pill, mockup ponsel dengan foto fashion ilustratif, kartu fitur pendukung, dan lengkung biru muda. Sesudah hero tampil satu baris logo client asli, ringkasan paket, lalu CTA penutup. Di mobile dua kartu dekoratif disembunyikan; ukuran mockup dan kartu tersisa disesuaikan. Animasi masuk berjalan sekali dan menghormati reduced motion. Halaman pendukung tetap menyediakan detail tanpa memperpanjang beranda.

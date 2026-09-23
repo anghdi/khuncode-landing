@@ -238,11 +238,19 @@ main img { max-width: 100%; }
 .service-detail-panel p:not(.eyebrow) { color: var(--muted); font-size: 15px; line-height: 1.85; margin-top: 18px; }
 .service-detail-panel .detail-lead { color: var(--ink)!important; }
 .service-detail-panel .button { margin-top: 26px; font-size: 14px; }
+.service-package-price { margin-top: 24px; }
+.service-package-price span { display: block; color: var(--muted); font-size: 11px; margin-bottom: 5px; }
+.service-package-price strong { font-size: 30px; font-weight: 600; letter-spacing: -.05em; }
+.service-package-summary { display: grid; gap: 9px; margin-top: 22px; }
+.service-package-summary li { position: relative; padding-left: 18px; font-size: 14px; line-height: 1.7; }
+.service-package-summary li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-size: 11px; }
 .feature-panel { background: #f6f8fc; padding: 28px; border-radius: 14px; }
 .feature-panel h3 { font-size: 14px; font-weight: 600; margin-bottom: 18px; }
 .feature-panel ul { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 22px; }
 .feature-panel li { font-size: 14px; line-height: 1.7; padding-left: 16px; position: relative; }
 .feature-panel li::before { content: '–'; color: var(--accent); position: absolute; left: 0; }
+.service-scope-note { margin: -4px 0 20px; color: var(--muted); font-size: 12px; line-height: 1.8; }
+.services-costs { margin-top: 38px; }
 .next-step { margin-top: 48px; padding: 32px; background: var(--brand-soft); border-radius: 16px; display: flex; justify-content: space-between; align-items: center; gap: 30px; }
 .next-step h2,.pricing-terms h2 { font-size: 23px; line-height: 1.4; }
 .next-step p,.pricing-terms p { font-size: 14px; line-height: 1.9; color: var(--muted); margin-top: 12px; }
@@ -339,3 +347,34 @@ main img { max-width: 100%; }
  .compact-landing .campaign-features p { font-size: 13px; }
  .compact-landing .final-cta { padding-block: 32px; }
 }
+
+/* Unified three-tier pricing: restrained surfaces, clear costs, native disclosures. */
+.package-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; align-items: start; }
+.package-card { min-width: 0; padding: 28px; border: 1px solid var(--line); border-radius: 20px; background: #fff; scroll-margin-top: 30px; }
+.package-business { background: #f4f7ff; border-color: #a9bfff; }
+.package-kicker { color: var(--muted); font-size: 9px; letter-spacing: .08em; min-height: 29px; }
+.section .package-name { font-size: 27px; font-weight: 600; margin-top: 8px; letter-spacing: -.04em; }
+.package-copy { font-size: 14px; line-height: 1.75; color: var(--muted); margin-top: 14px; min-height: 74px; }
+.package-amount { padding-block: 24px; border-bottom: 1px solid var(--line); }
+.package-amount>span { display: block; font-size: 11px; color: var(--muted); margin-bottom: 8px; }
+.package-amount strong { font-size: clamp(25px,2.5vw,34px); font-weight: 600; letter-spacing: -.05em; white-space: nowrap; }
+.package-summary { padding-block: 22px; display: grid; gap: 9px; }
+.package-summary li { font-size: 13px; line-height: 1.7; padding-left: 16px; position: relative; }
+.package-summary li::before { content: '✓'; position: absolute; left: 0; color: var(--accent); font-size: 11px; }
+.package-detail-link { display: inline-flex; align-items: center; min-height: 44px; font-size: 13px; text-decoration: underline; text-underline-offset: 4px; }
+.package-button { width: 100%; font-size: 13px; margin-top: 14px; border-radius: 999px; }
+.package-features summary { display: flex; justify-content: space-between; cursor: pointer; list-style: none; font-size: 13px; min-height: 44px; align-items: center; border-top: 1px solid var(--line); }
+.package-features summary::-webkit-details-marker { display: none; }
+.package-features[open] summary span { transform: rotate(45deg); }
+.package-features ul { display: grid; gap: 10px; padding: 16px 0; }
+.package-features li { font-size: 13px; line-height: 1.7; padding-left: 14px; position: relative; }
+.package-features li::before { content: '–'; position: absolute; left: 0; }
+.package-scope,.package-footnote { font-size: 12px; line-height: 1.85; color: var(--muted); margin-top: 12px; }
+.campaign-package-levels article { border-top: 1px solid #dce4f2; padding-top: 18px; }
+.campaign-package-levels article>span { display: block; margin-bottom: 14px; color: var(--accent); font-size: 11px; }
+.package-costs { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 24px 0; margin-top: 22px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.package-costs p { font-size: 13px; line-height: 1.85; }.package-costs strong,.package-costs span { display: block; }.package-costs span { color: var(--muted); }
+.packages-heading { text-align: center; max-width: 850px; margin-inline: auto; }.packages-heading>p:last-child { margin-inline: auto; }
+.packages-heading h1 { font-size: clamp(35px,4vw,55px); }
+@media(max-width:1099px) { .package-grid { gap: 14px; }.package-card { padding: 20px; }.package-copy { min-height: 100px; }.package-amount strong { font-size: 27px; } }
+@media(max-width:767px) { .package-grid { grid-template-columns: 1fr; gap: 16px; }.package-card { padding: 22px; }.package-kicker,.package-copy { min-height: 0; }.package-copy { margin-top: 10px; }.package-amount { padding-block: 18px; }.package-amount strong { font-size: 30px; }.package-summary { padding-block: 16px; }.package-costs { grid-template-columns: 1fr; gap: 16px; }.compact-landing .package-card { display: grid; grid-template-columns: 1fr auto; column-gap: 12px; }.compact-landing .package-copy,.compact-landing .package-summary { display: none; }.compact-landing .package-kicker { grid-column: 1 / -1; }.compact-landing .package-amount { border: 0; padding: 0; grid-column: 2; grid-row: 2 / 4; align-self: center; }.compact-landing .package-amount strong { font-size: 24px; }.compact-landing .package-button { grid-column: 1 / -1; }.compact-landing .package-detail-link { grid-column: 1; } }

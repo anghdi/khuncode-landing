@@ -1,16 +1,43 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const contact = 'https://wa.me/6285117304509?text=' + encodeURIComponent('Halo KhunCode, saya tertarik website e-commerce mulai Rp2.500.000.\nNama brand: \nJenis produk: \nKebutuhan website: ');
-const projects = [{ name: 'Rhodes Apparel', image: '/rhodes.jpeg', domain: 'rhodesapparel.id', tone: 'rhodes', description: 'Website online store untuk brand fashion Rhodes Apparel.' }, { name: 'Georgios Women', image: '/georgios.png', domain: 'georgioswomen.com', tone: 'georgios', description: 'Website e-commerce untuk fashion brand Georgios Women.' }];
-const features = [['Tampilkan produk dengan jelas', 'Halaman utama, katalog, kategori, dan detail produk.'], ['Permudah proses pemesanan', 'Keranjang belanja, checkout sederhana, dan tombol WhatsApp.'], ['Nyaman dibuka dari HP', 'Tampilan responsif untuk smartphone, tablet, dan desktop.'], ['Dibantu hingga website tayang', 'Basic SEO dan deployment ke hosting yang disepakati.']];
----
-<Layout title="Website E-Commerce Mulai Rp2.500.000 | KhunCode" description="Bangun toko online untuk brand kamu. Katalog, keranjang, checkout sederhana, dan tampilan mobile. Lihat portfolio dan diskusikan kebutuhan melalui WhatsApp." ogImage="/studio-hero.webp" campaign>
-<div class="compact-landing">
-  <section class="home-hero wrap campaign-hero"><div class="hero-copy"><p class="eyebrow">WEBSITE E-COMMERCE UNTUK BRAND & BISNIS</p><h1>Toko online sendiri.<br /><em>Sesuai brand kamu.</em></h1><p class="hero-description">Bantu customer melihat koleksi, memilih produk, dan memesan melalui website brand kamu. Kami bantu dari perencanaan sampai website tayang.</p><div class="campaign-price"><span>Mulai dari</span><strong>Rp2.500.000</strong><p>Biaya development. Domain & hosting terpisah.</p></div><div class="hero-actions"><a class="button" href={contact} target="_blank" rel="noopener noreferrer" data-track-cta="whatsapp" data-location="ecommerce-hero">Diskusikan toko online <span aria-hidden="true">↗</span></a><a class="text-link" href="#hasil-kerja">Lihat hasil kerja ↓</a></div><p class="hero-note">Ceritakan brand dan kebutuhanmu. Lingkup & harga disepakati sebelum mulai.</p></div><figure class="hero-visual"><div class="hero-photo"><img src="/studio-hero.webp" srcset="/studio-hero-mobile.webp 640w, /studio-hero.webp 1536w" sizes="(max-width: 767px) calc(100vw - 40px), 48vw" width="1536" height="1024" alt="Ilustrasi toko online fashion pada laptop di meja kerja brand" fetchpriority="high" /></div><figcaption>Ilustrasi pengalaman toko online untuk brand.</figcaption></figure></section>
 
-  <section id="hasil-kerja" class="section wrap"><div class="section-heading"><div><p class="eyebrow">PORTFOLIO E-COMMERCE</p><h2>Dibangun untuk brand fashion.</h2></div></div><div class="project-grid campaign-projects">{projects.map(project => <article class="project"><a class={`project-art ${project.tone}`} href={`https://${project.domain}`} target="_blank" rel="noopener noreferrer"><img src={project.image} alt={`Logo ${project.name}`} width="280" height="220" loading="lazy" decoding="async" /><span class="project-arrow" aria-hidden="true">↗</span></a><div class="project-meta"><p>Fashion E-Commerce</p></div><h3>{project.name}</h3><a class="text-link" href={`https://${project.domain}`} target="_blank" rel="noopener noreferrer">Lihat website <span aria-hidden="true">↗</span></a></article>)}</div></section>
-  <section class="services-section"><div class="section wrap"><div class="section-heading"><div><p class="eyebrow">CAKUPAN WEBSITE</p><h2>Yang termasuk dalam website kamu.</h2></div><p class="heading-aside">Cocok untuk fashion, beauty, accessories,<br />dan bisnis dengan produk fisik.</p></div><div class="campaign-features">{features.map(([title, desc], i) => <article><h3>{title}</h3><p>{desc}</p></article>)}</div><p class="pricing-note">Payment gateway, ongkir otomatis, dan kebutuhan khusus dibahas terpisah. <a href="/harga">Lihat detail harga ↗</a></p></div></section>
-  <section class="final-cta"><div class="wrap"><p class="eyebrow">LANGKAH PERTAMA UNTUK TOKO ONLINE KAMU</p><h2>Siap punya <em>toko online?</em></h2><div class="final-cta-bottom"><p>Website e-commerce mulai Rp2.500.000.<br />Ceritakan produk dan kebutuhanmu, kita bahas lingkupnya bersama.</p><a class="button button-light" href={contact} target="_blank" rel="noopener noreferrer" data-track-cta="whatsapp" data-location="ecommerce-final">Diskusikan via WhatsApp <span aria-hidden="true">↗</span></a></div></div></section>
-  <div class="campaign-mobile-bar"><span>Website e-commerce<strong>Mulai Rp2,5 juta</strong></span><a class="button" href={contact} target="_blank" rel="noopener noreferrer" data-track-cta="whatsapp" data-location="ecommerce-mobile-sticky">Diskusi WhatsApp ↗</a></div>
-</div>
+const contact = 'https://wa.me/6285117304509?text=' + encodeURIComponent('Halo KhunCode, saya ingin diskusi paket toko online.\nPaket yang diminati: \nNama brand: \nJenis produk: \nKebutuhan website: ');
+const projects = [
+  { name: 'Rhodes Apparel', image: '/rhodes.jpeg', domain: 'rhodesapparel.id', tone: 'rhodes' },
+  { name: 'Georgios Women', image: '/georgios.png', domain: 'georgioswomen.com', tone: 'georgios' },
+];
+const levels = [
+  ['Starter Store — Rp1.500.000', 'Cocok untuk UMKM atau brand yang ingin punya katalog produk online dan menerima order via WhatsApp.'],
+  ['Online Store — Rp2.500.000', 'Cocok untuk bisnis yang ingin customer bisa belanja langsung di website.'],
+  ['Custom Commerce — Mulai Rp4.000.000', 'Cocok untuk toko online yang butuh fitur lebih spesifik, tapi tetap dalam scope yang masuk akal.'],
+];
+---
+<Layout title="Pembuatan Toko Online Mulai Rp1.500.000 | KhunCode" description="Pilih Starter Store dengan pemesanan WhatsApp, Online Store dengan checkout, atau Custom Commerce sesuai kebutuhan brand kamu." ogImage="/studio-hero.webp" campaign>
+  <div class="compact-landing">
+    <section class="home-hero wrap campaign-hero">
+      <div class="hero-copy">
+        <p class="eyebrow">TOKO ONLINE UNTUK BRAND & UMKM</p>
+        <h1>Mulai jualan online.<br /><em>Sesuai cara bisnismu.</em></h1>
+        <p class="hero-description">Mulai dari katalog dengan pemesanan WhatsApp sampai e-commerce dengan cart, checkout, dan pengelolaan pesanan.</p>
+        <div class="campaign-price"><span>Paket mulai dari</span><strong>Rp1.500.000</strong><p>Deploy + maintenance Rp100.000/bulan. Domain terpisah.</p></div>
+        <div class="hero-actions"><a class="button" href={contact} target="_blank" rel="noopener noreferrer">Diskusikan toko online <span aria-hidden="true">↗</span></a><a class="text-link" href="#hasil-kerja">Lihat hasil kerja ↓</a></div>
+        <p class="hero-note">Ceritakan brand dan kebutuhanmu. Lingkup serta harga disepakati sebelum mulai.</p>
+      </div>
+      <figure class="hero-visual"><div class="hero-photo"><img src="/studio-hero.webp" srcset="/studio-hero-mobile.webp 640w, /studio-hero.webp 1536w" sizes="(max-width: 767px) calc(100vw - 40px), 48vw" width="1536" height="1024" alt="Ilustrasi toko online fashion pada laptop di meja kerja brand" fetchpriority="high" /></div><figcaption>Ilustrasi pengalaman toko online untuk brand.</figcaption></figure>
+    </section>
+
+    <section id="hasil-kerja" class="section wrap">
+      <div class="section-heading"><div><p class="eyebrow">PORTFOLIO E-COMMERCE</p><h2>Dibangun untuk brand fashion.</h2></div></div>
+      <div class="project-grid campaign-projects">{projects.map(project => <article class="project"><a class={`project-art ${project.tone}`} href={`https://${project.domain}`} target="_blank" rel="noopener noreferrer"><img src={project.image} alt={`Logo ${project.name}`} width="280" height="220" loading="lazy" decoding="async" /><span class="project-arrow" aria-hidden="true">↗</span></a><div class="project-meta"><p>Fashion E-Commerce</p></div><h3>{project.name}</h3><a class="text-link" href={`https://${project.domain}`} target="_blank" rel="noopener noreferrer">Lihat website <span aria-hidden="true">↗</span></a></article>)}</div>
+    </section>
+
+    <section class="services-section"><div class="section wrap">
+      <div class="section-heading"><div><p class="eyebrow">TIGA TINGKAT KEBUTUHAN</p><h2>Pilih cara customer berbelanja.</h2></div><p class="heading-aside">Dari pesan melalui WhatsApp hingga<br />checkout dan integrasi khusus.</p></div>
+      <div class="campaign-features campaign-package-levels">{levels.map(([title, description], index) => <article><span>0{index + 1}</span><h3>{title}</h3><p>{description}</p></article>)}</div>
+      <p class="pricing-note">Starter Store menerima order via WhatsApp. Online Store mencakup cart & checkout. Custom Commerce fitur spesifik disepakati sebelum pengerjaan. <a href="/harga">Bandingkan semua paket ↗</a></p>
+    </div></section>
+
+    <section class="final-cta"><div class="wrap"><p class="eyebrow">LANGKAH PERTAMA UNTUK TOKO ONLINE KAMU</p><h2>Siap punya <em>toko online?</em></h2><div class="final-cta-bottom"><p>Starter Store Rp1.500.000 · Online Store Rp2.500.000 · Custom Commerce mulai Rp4.000.000.<br />Domain terpisah. Deploy + maintenance Rp100.000/bulan.</p><a class="button button-light" href={contact} target="_blank" rel="noopener noreferrer">Diskusikan via WhatsApp <span aria-hidden="true">↗</span></a></div></div></section>
+    <div class="campaign-mobile-bar"><span>Paket toko online<strong>Mulai Rp1,5 juta</strong></span><a class="button" href={contact} target="_blank" rel="noopener noreferrer">Diskusi WhatsApp ↗</a></div>
+  </div>
 </Layout>

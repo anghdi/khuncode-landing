@@ -1,93 +1,47 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { packages } from '../data/packages';
 
-const waNumber = "6285117304509";
-const waBaseUrl = `https://wa.me/${waNumber}`;
-
-const servicesDetail = [
-  {
-    id: "ecommerce",
-    title: "E-Commerce Website",
-    badge: "Fokus Utama Studio",
-    subtitle: "Untuk brand yang ingin memiliki toko online sendiri secara mandiri.",
-    description: "Website e-commerce memberikan akses penuh bagi brand untuk mengelola katalog produk, harga, dan proses pemesanan langsung.",
-    includes: [
-      "Halaman utama",
-      "Katalog produk",
-      "Detail produk",
-      "Kategori produk",
-      "Keranjang belanja",
-      "Checkout sederhana",
-      "Tombol WhatsApp",
-      "Tampilan mobile",
-      "Basic SEO",
-      "Deployment ke hosting"
-    ],
-    waMsg: "Halo KhunCode, saya tertarik untuk mendiskusikan pembuatan E-Commerce Website toko online.",
-    cta: "Diskusikan E-Commerce"
-  },
-  {
-    id: "business",
-    title: "Business Website",
-    badge: "Media Kredibilitas",
-    subtitle: "Untuk bisnis yang membutuhkan website profesional sebagai media informasi dan membangun kepercayaan.",
-    description: "Tingkatkan reputasi dan rasa percaya calon klien/customer dengan memiliki profil bisnis resmi yang rapi, cepat, dan mudah diakses.",
-    includes: [
-      "Halaman utama",
-      "Profil bisnis",
-      "Layanan",
-      "Portfolio",
-      "Kontak",
-      "Tombol WhatsApp",
-      "Tampilan mobile",
-      "Basic SEO",
-      "Deployment ke hosting"
-    ],
-    waMsg: "Halo KhunCode, saya ingin mendiskusikan pembuatan Business Website.",
-    cta: "Diskusikan Business Website"
-  },
-  {
-    id: "booking",
-    title: "Booking & Ticketing",
-    badge: "Reservasi Event",
-    subtitle: "Untuk bisnis atau event yang membutuhkan sistem booking, reservasi, atau penjualan tiket.",
-    description: "Memudahkan pengunjung melakukan pemesanan tiket acara, reservasi tempat, atau jadwal konsultasi secara praktis.",
-    includes: [
-      "Halaman detail event / layanan",
-      "Form reservasi / jadwal",
-      "Sistem pemesanan tiket",
-      "Alur konfirmasi sesuai kebutuhan",
-      "Optimasi tampilan mobile",
-      "Fitur disesuaikan kebutuhan"
-    ],
-    waMsg: "Halo KhunCode, saya berminat membuat sistem Booking & Ticketing.",
-    cta: "Diskusikan Booking & Ticketing"
-  },
-  {
-    id: "custom",
-    title: "Custom Website",
-    badge: "Sesuai Kebutuhan",
-    subtitle: "Untuk kebutuhan website dengan fitur atau alur yang lebih spesifik.",
-    description: "Solusi untuk bisnis dengan alur operasional khusus atau kebutuhan tampilan khusus.",
-    includes: [
-      "Diskusi alur bisnis mendalam",
-      "Desain UI/UX custom brand",
-      "Fitur & alur khusus",
-      "Performa & kecepatan tinggi",
-      "Penyesuaian hosting",
-      "Publikasi ke hosting"
-    ],
-    waMsg: "Halo KhunCode, saya ingin menceritakan kebutuhan Custom Website spesifik.",
-    cta: "Ceritakan Kebutuhanmu"
-  }
-];
+const whatsappUrl = (plan: typeof packages[number]) =>
+  `https://wa.me/6285117304509?text=${encodeURIComponent(
+    `Halo KhunCode, saya tertarik paket ${plan.name} ${plan.starting ? 'mulai ' : ''}Rp${plan.price}. Saya ingin mendiskusikan kebutuhan toko online saya.`
+  )}`;
 ---
 
-<Layout title="Layanan Web Development — KhunCode" description="Pembuatan website e-commerce, business website, booking, ticketing, dan custom sesuai kebutuhan bisnis.">
-  <section class="section wrap inner-page">
-    <header class="page-heading"><p class="eyebrow">LAYANAN KHUNCODE</p><h1>Website yang tepat<br /><em>untuk kebutuhanmu.</em></h1><p>Dari toko online sampai alur bisnis yang lebih spesifik. Kita tentukan halaman dan fitur yang memang kamu perlukan.</p></header>
-    <nav class="service-jumps" aria-label="Pilih layanan">{servicesDetail.map(s => <a href={`#${s.id}`}>{s.title} ↓</a>)}</nav>
-    <div class="service-details">{servicesDetail.map((s,i) => <article id={s.id} class="service-detail-panel"><div><p class="eyebrow">0{i+1} / {s.badge}</p><h2>{s.title}</h2><p class="detail-lead">{s.subtitle}</p><p>{s.description}</p><a class="button" href={`${waBaseUrl}?text=${encodeURIComponent(s.waMsg)}`} target="_blank" rel="noopener noreferrer">{s.cta} <span aria-hidden="true">↗</span></a></div><div class="feature-panel"><h3>Umumnya mencakup</h3><ul>{s.includes.map(item => <li>{item}</li>)}</ul></div></article>)}</div>
-    <aside class="next-step"><div><h2>Ingin tahu estimasi biayanya?</h2><p>Lihat harga awal, lalu kita sesuaikan dengan lingkup project.</p></div><a class="text-link" href="/harga">Lihat harga ↗</a></aside>
+<Layout title="Layanan Toko Online — KhunCode" description="Pilih Starter Store, Online Store, atau Custom Commerce sesuai cara customer berbelanja dan kebutuhan operasional bisnis kamu.">
+  <section class="section wrap inner-page services-page">
+    <header class="page-heading">
+      <p class="eyebrow">LAYANAN COMMERCE KHUNCODE</p>
+      <h1>Dari katalog sederhana<br /><em>sampai commerce custom.</em></h1>
+      <p>Tiga paket untuk tahap bisnis yang berbeda. Mulai dari pemesanan WhatsApp, lanjut ke checkout langsung, hingga sistem yang mengikuti alur operasional brand kamu.</p>
+    </header>
+
+    <nav class="service-jumps" aria-label="Pilih paket toko online">
+      {packages.map(plan => <a href={`#${plan.id}`}>{plan.name} ↓</a>)}
+    </nav>
+
+    <div class="service-details">
+      {packages.map((plan, index) => (
+        <article id={plan.id} class="service-detail-panel package-service-panel">
+          <div class="service-package-copy">
+            <p class="eyebrow">0{index + 1} / {plan.kicker}</p>
+            <h2>{plan.name}</h2>
+            <p class="detail-lead">{plan.audience}</p>
+            <p>{plan.description}</p>
+            <div class="service-package-price"><span>{plan.starting ? 'Mulai dari' : 'Biaya pembuatan'}</span><strong>Rp{plan.price}</strong></div>
+            <ul class="service-package-summary"><li>{plan.capacity}</li><li>{plan.revision}</li><li>{plan.highlight}</li></ul>
+            <a class="button" href={whatsappUrl(plan)} target="_blank" rel="noopener noreferrer">Diskusikan {plan.name} <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="feature-panel">
+            <h3>Yang termasuk dalam paket</h3>
+            <p class="service-scope-note">{plan.scopeNote}</p>
+            <ul>{plan.features.map(feature => <li>{feature}</li>)}</ul>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <aside class="package-costs services-costs" aria-label="Biaya tambahan untuk semua paket"><p><strong>Deploy + maintenance</strong><span>Rp100.000/bulan untuk semua paket.</span></p><p><strong>Domain</strong><span>Dibayar terpisah sesuai domain yang dipilih client.</span></p></aside>
+    <aside class="next-step"><div><h2>Masih bingung memilih paket?</h2><p>Ceritakan jumlah produk dan alur pemesanan yang kamu inginkan. Kami bantu menentukan paketnya.</p></div><a class="text-link" href="/kontak">Diskusi dulu ↗</a></aside>
   </section>
 </Layout>
