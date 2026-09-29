@@ -1,33 +1,70 @@
 ---
 const year = new Date().getFullYear();
+const whatsapp = `https://wa.me/6285117304509?text=${encodeURIComponent('Halo KhunCode, saya ingin konsultasi mengenai pembuatan website.')}`;
 ---
-<footer class="site-footer">
+<footer class="site-footer footer-panel">
   <div class="wrap">
+    <div class="footer-lead">
+      <p class="footer-label">KHUNCODE · WEB DEVELOPMENT STUDIO</p>
+      <div><h2>Jualanmu sudah jalan.<br /><span>Websitenya kita siapkan.</span></h2><a class="footer-contact-card" href={whatsapp} target="_blank" rel="noopener noreferrer"><span class="footer-contact-top">MULAI DARI OBROLAN <span aria-hidden="true">↗</span></span><strong>Ceritakan tokomu.</strong><span>Konsultasi via WhatsApp</span></a></div>
+    </div>
     <div class="footer-grid">
-      <div>
+      <div class="footer-about">
         <a class="wordmark" href="/">khun<span>code</span></a>
-        <p>Toko online untuk brand & bisnis.<br />Dibuat sesuai kebutuhan kamu.</p>
+        <p>Kami membantu brand dan bisnis membangun website yang jelas, responsif, dan siap digunakan untuk menerima pesanan.</p>
       </div>
       <div>
-        <h2>Paket toko online</h2>
+        <h3>Paket</h3>
         <a href="/layanan#starter-store">Starter Store</a>
         <a href="/layanan#online-store">Online Store</a>
         <a href="/layanan#custom-commerce">Custom Commerce</a>
       </div>
       <div>
-        <h2>Jelajahi</h2>
+        <h3>KhunCode</h3>
         <a href="/portfolio">Portfolio</a>
         <a href="/harga">Harga</a>
         <a href="/#proses">Proses</a>
         <a href="/#tentang">Tentang</a>
       </div>
       <div>
-        <h2>Mari terhubung</h2>
-        <a href="https://wa.me/6285117304509" target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
+        <h3>Hubungi</h3>
+        <a href={whatsapp} target="_blank" rel="noopener noreferrer">WhatsApp ↗</a>
         <a href="mailto:hello@khuncode.com">hello@khuncode.com</a>
         <a href="/kontak">Kontak</a>
       </div>
     </div>
-    <div class="footer-bottom"><p>© {year} KhunCode</p><p>Web development studio · Indonesia</p><a href="#main-content">Kembali ke atas ↑</a></div>
+    <div class="footer-bottom"><p>© {year} KhunCode. Dibuat di Indonesia.</p><p>Website untuk commerce, business, dan kebutuhan custom.</p><a href="#main-content">Kembali ke atas ↑</a></div>
   </div>
 </footer>
+
+<style>
+  .site-footer.footer-panel { margin: 0 16px 16px; padding: 0 0 28px; border: 1px solid #dce6fb; border-radius: 32px; background: #edf3ff; overflow: hidden; }
+  .footer-panel .wrap { width: min(1240px, calc(100% - 64px)); }
+  .footer-panel .footer-lead { position: relative; padding-block: 38px; border-color: #cedbf3; }
+  .footer-panel .footer-label { display: flex; align-items: center; gap: 10px; font-size: 10px; margin-bottom: 18px; }
+  .footer-panel .footer-label::before { content: ''; width: 22px; height: 2px; background: var(--accent); }
+  .footer-panel .footer-lead>div { align-items: center; }
+  .footer-panel .footer-lead h2 { font-size: clamp(34px,4vw,54px); }
+  .footer-contact-card { display: grid; gap: 13px; width: 280px; flex-shrink: 0; padding: 22px 24px; border-radius: 18px; background: var(--accent); color: white; transition: background .2s; }
+  .footer-contact-card:hover { background: var(--brand-hover); }
+  .footer-contact-top { display: flex; justify-content: space-between; align-items: center; gap: 20px; font-size: 9px; letter-spacing: .09em; }
+  .footer-contact-top>span { font-size: 24px; line-height: 1; }
+  .footer-contact-card strong { font-size: 22px; font-weight: 500; letter-spacing: -.04em; }
+  .footer-contact-card>span:last-child { font-size: 12px; color: #e5edff; }
+  .footer-panel .footer-grid { padding-block: 32px; gap: 32px; }
+  .footer-panel .footer-grid h3 { color: var(--accent); }
+  .footer-panel .footer-grid>div>a:not(.wordmark) { font-size: 12px; margin-top: 5px; min-height: 32px; display: flex; align-items: center; }
+  .footer-panel .footer-grid .footer-about p { font-size: 12px; margin-top: 14px; }
+  .footer-panel .footer-bottom { border-color: #cedbf3; padding-top: 20px; font-size: 10px; }
+  @media(max-width:767px) {
+    .site-footer.footer-panel { margin: 0 8px 8px; border-radius: 24px; padding-bottom: 82px; }
+    .footer-panel .wrap { width: calc(100% - 40px); }
+    .footer-panel .footer-lead { padding-block: 28px; }
+    .footer-panel .footer-lead h2 { font-size: clamp(30px,6vw,42px); }
+    .footer-contact-card { width: 100%; margin-top: 24px; padding: 18px 20px; gap: 10px; }
+    .footer-panel .footer-grid { grid-template-columns: 1fr 1fr; gap: 25px 20px; padding-block: 28px; }
+    .footer-panel .footer-about { grid-column: 1 / -1; }
+    .footer-panel .footer-grid>div:last-child { grid-column: 1 / -1; }
+    .footer-panel .footer-bottom { padding-bottom: 0; }
+  }
+</style>

@@ -4,7 +4,7 @@ const { campaign = false } = Astro.props;
 const links = campaign ? [{name:'Hasil kerja',href:'/ecommerce#hasil-kerja'},{name:'Kontak',href:'/kontak'}] : [{name:'Layanan',href:'/layanan'},{name:'Portfolio',href:'/portfolio'},{name:'Harga',href:'/harga'},{name:'Proses',href:'/#proses'},{name:'Tentang',href:'/#tentang'},{name:'Kontak',href:'/kontak'}];
 const waLink = `https://wa.me/6285117304509?text=${encodeURIComponent(campaign ? 'Halo KhunCode, saya ingin diskusi website e-commerce untuk brand saya.' : 'Halo KhunCode, saya ingin mendiskusikan project website.')}`;
 ---
-<header class="site-header"><div class="wrap header-inner">
+<header class="site-header floating-header"><div class="wrap header-inner">
   <a class="wordmark" href="/" aria-label="KhunCode — Beranda">khun<span>code</span></a>
   <nav class="desktop-nav" aria-label="Navigasi utama">{links.map(link => <a href={link.href} aria-current={Astro.url.pathname === link.href ? 'page' : undefined}>{link.name}</a>)}</nav>
   <a class="header-cta" href={waLink} target="_blank" rel="noopener noreferrer">Diskusikan Project <span aria-hidden="true">↗</span></a>
@@ -18,3 +18,32 @@ const waLink = `https://wa.me/6285117304509?text=${encodeURIComponent(campaign ?
   document.addEventListener('click', event => { if (event.target instanceof Node && !menu?.contains(event.target)) close(); });
   matchMedia('(min-width: 1100px)').addEventListener('change', event => { if (event.matches) close(); });
 </script>
+
+<style>
+  .site-header.floating-header { top: 12px; padding: 0; margin-top: 12px; background: transparent; border: 0; box-shadow: none; }
+  .floating-header .header-inner { height: 76px; width: min(1280px,calc(100% - 48px)); padding: 10px 16px 10px 24px; gap: 22px; border: 0; border-radius: 20px; background: #fff; box-shadow: 0 4px 18px #11182706; }
+  .floating-header .wordmark { font-size: 26px; flex-shrink: 0; }
+  .floating-header .desktop-nav { gap: 3px; font-size: 12px; }
+  .floating-header .desktop-nav a { padding: 12px 14px; border-radius: 12px; color: #43516b; transition: background .2s,color .2s; }
+  .floating-header .desktop-nav a:hover { background: #f6f7f9; color: var(--ink); }
+  .floating-header .desktop-nav a[aria-current] { background: #f6f7f9; color: var(--accent); font-weight: 600; }
+  .floating-header .header-cta { min-height: 44px; align-items: center; padding: 12px 18px; border-radius: 15px; font-size: 11px; gap: 18px; box-shadow: 0 3px 8px #104ee81a; transition: background .2s; }
+  .floating-header .header-cta:hover { background: var(--brand-hover); }
+  .floating-header .mobile-menu summary { border-radius: 13px; background: #fff; border-color: #e9ebef; }
+  .floating-header .mobile-menu summary span { background: var(--accent); transition: transform .2s; }
+  .floating-header .mobile-menu[open] summary span:first-child { transform: translateY(3.5px) rotate(45deg); }
+  .floating-header .mobile-menu[open] summary span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
+  .floating-header .mobile-menu-panel { top: calc(100% + 9px); padding: 12px; border-color: #e9ebef; border-radius: 20px; max-height: calc(100dvh - 120px); overflow-y: auto; box-shadow: 0 8px 24px #1118270a; }
+  .floating-header .mobile-menu-panel a { padding: 13px 15px; border: 0; border-radius: 10px; font-size: 14px; }
+  .floating-header .mobile-menu-panel a:hover,.floating-header .mobile-menu-panel a[aria-current] { background: #f6f7f9; color: var(--accent); }
+  .floating-header .mobile-menu-panel .mobile-contact { background: var(--accent); color: white; margin-top: 8px; }
+  @media(max-width:767px) {
+    .site-header.floating-header { top: 8px; margin-top: 8px; }
+    .floating-header .header-inner { height: 66px; width: calc(100% - 24px); padding: 10px 11px 10px 17px; gap: 10px; border-radius: 20px; }
+    .floating-header .wordmark { font-size: 24px; }
+    .floating-header .header-cta { font-size: 10px; padding-inline: 12px; gap: 8px; border-radius: 12px; }
+  }
+  @media(prefers-reduced-motion:reduce) {
+    .floating-header a,.floating-header .mobile-menu summary span { transition: none; }
+  }
+</style>
