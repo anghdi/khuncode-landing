@@ -83,6 +83,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://khuncode
     </div>
     {!campaign && <WhatsAppButton />}
     <script>
+      import '../scripts/lead-tracking';
+
       const motion = matchMedia('(prefers-reduced-motion: reduce)');
       if (!motion.matches && 'IntersectionObserver' in window) {
         const observer = new IntersectionObserver(entries => {

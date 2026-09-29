@@ -13,7 +13,7 @@ for (const key of attributionKeys) {
 export function trackWhatsAppClick(location: string) {
   const detail = { cta_location: location, page_path: window.location.pathname, ...campaign };
   window.dispatchEvent(new CustomEvent('khuncode:whatsapp-click', { detail }));
-  try { trackingWindow.fbq?.('trackCustom', 'WhatsAppClick', detail); } catch { /* Navigation must still work. */ }
+  try { trackingWindow.fbq?.('track', 'Lead', detail); } catch { /* Navigation must still work. */ }
   try { trackingWindow.gtag?.('event', 'click_whatsapp', detail); } catch { /* Navigation must still work. */ }
 }
 // Keep campaign labels when a visitor moves to another internal marketing page.
@@ -26,6 +26,20 @@ if (Object.keys(campaign).length) {
   });
 }
 document.addEventListener('click', event => {
-  const anchor = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>('a[data-track-cta="whatsapp"]') : null;
-  if (anchor) trackWhatsAppClick(anchor.dataset.location || 'unknown');
+  const anchor = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>('a[href]') : null;
+  if (!anchor) return;
+
+  const url = new URL(anchor.href, window.location.href);
+  const isWhatsAppLink = anchor.dataset.trackCta === 'whatsapp'
+    || url.hostname === 'wa.me'
+    || url.hostname === 'api.whatsapp.com'
+    || url.hostname === 'web.whatsapp.com';
+
+  if (isWhatsAppLink) trackWhatsAppClick(anchor.dataset.location || 'whatsapp-link');
+});
+
+document.addEventListener('submit', event => {
+  if (event.target instanceof HTMLFormElement && event.target.id === 'wa-inquiry-form') {
+    trackWhatsAppClick('contact-form');
+  }
 });
