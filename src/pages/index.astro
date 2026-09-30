@@ -16,6 +16,7 @@ const faqs = [
   { question: 'Apa yang perlu saya siapkan?', answer: 'Siapkan logo, informasi bisnis, foto dan data produk, harga, serta referensi tampilan jika ada. Kami membantu menyusun struktur websitenya.' },
   { question: 'Apakah produk bisa ditambah sendiri?', answer: 'Pada paket Online Store dan Custom Commerce, pengelolaan produk dapat dilakukan melalui admin. Starter Store mencakup setup awal maksimal 10 produk.' },
   { question: 'Bagaimana jika belum tahu paket yang cocok?', answer: 'Ceritakan cara bisnis menerima pesanan dan jumlah produknya. Kami akan membantu memilih paket tanpa kewajiban langsung membeli.' },
+  { question: 'Apakah website harus menggantikan marketplace?', answer: 'Tidak. Website bisa dipakai berdampingan dengan marketplace dan WhatsApp. Bedanya, kamu juga punya channel sendiri yang bisa diatur sesuai kebutuhan brand.' },
 ];
 const structuredData = {
   '@context': 'https://schema.org',
@@ -32,14 +33,37 @@ const structuredData = {
     <div class="reference-hero-copy">
       <p class="eyebrow hero-enter">WEBSITE E-COMMERCE UNTUK BRAND LOKAL</p>
       <h1 class="hero-enter">Produkmu layak tampil menarik.<br /><em>Belanjanya juga harus mudah.</em></h1>
-      <p class="reference-description hero-enter"><strong>Bikin pelanggan lihat produk, harga, dan cara order tanpa harus tanya satu-satu lewat chat.</strong><span>Kami merancang toko online yang rapi, cepat, dan nyaman dipakai—mulai dari katalog dengan order WhatsApp sampai checkout langsung.</span></p>
+      <p class="reference-description hero-enter"><strong>Bikin pelanggan lihat produk, harga, dan cara order dalam satu tempat — tanpa harus bergantung terus pada chat atau marketplace.</strong><span>Kami merancang toko online yang rapi, cepat, dan nyaman dipakai — mulai dari katalog dengan order WhatsApp sampai checkout langsung.</span></p>
       <p class="hero-offer hero-enter"><strong>Mulai Rp1,5 juta</strong><span>Konsultasi kebutuhan tanpa biaya · Tidak wajib langsung membeli</span></p>
       <div class="reference-actions hero-enter"><a class="button" href={contact} target="_blank" rel="noopener noreferrer" data-track-cta="whatsapp" data-location="homepage-hero">Konsultasi via WhatsApp <span aria-hidden="true">↗</span></a><a class="reference-secondary" href="#harga">Lihat paket &amp; harga</a></div>
     </div>
     <StorefrontShowcase />
   </section>
 
-
+  <section class="owned-channel-section wrap" aria-labelledby="channel-heading">
+    <div class="owned-channel-heading">
+      <p class="eyebrow">OWNED SALES CHANNEL</p>
+      <h2 id="channel-heading">Jangan cuma numpang jualan.<br /><em>Punya channel sendiri.</em></h2>
+      <p class="section-intro">Marketplace dan chat tetap bisa dipakai. Tapi brand kamu juga bisa punya tempat sendiri untuk menampilkan produk, mengatur pengalaman belanja, dan menerima order.</p>
+    </div>
+    <div class="channel-benefits-grid">
+      <article class="channel-benefit-card">
+        <span class="channel-benefit-num">01</span>
+        <h3>Katalog dan order lebih rapi</h3>
+        <p>Pelanggan bisa lihat produk, harga, dan cara order tanpa harus tanya satu-satu.</p>
+      </article>
+      <article class="channel-benefit-card">
+        <span class="channel-benefit-num">02</span>
+        <h3>Lebih banyak kontrol</h3>
+        <p>Atur tampilan, alur belanja, dan pengalaman pelanggan sesuai brand kamu.</p>
+      </article>
+      <article class="channel-benefit-card">
+        <span class="channel-benefit-num">03</span>
+        <h3>Tidak bergantung pada satu platform</h3>
+        <p>Website jadi channel tambahan yang brand kamu miliki sendiri.</p>
+      </article>
+    </div>
+  </section>
 
   <section id="portfolio" class="featured-work wrap" aria-labelledby="client-heading">
     <div class="featured-work-heading"><div><p class="eyebrow">PROJECT PILIHAN</p><h2 id="client-heading">Website yang sudah aktif dan digunakan.</h2></div><a class="text-link" href="/portfolio">Lihat semua project ↗</a></div>
@@ -49,7 +73,7 @@ const structuredData = {
   <section id="harga" class="section wrap compact-offers">
     <div class="section-heading"><div><p class="eyebrow">PAKET TOKO ONLINE</p><h2>Mulai dari cara kamu berjualan.</h2><p class="section-intro">Katalog dengan order WhatsApp, checkout langsung, atau alur khusus. Pilih yang paling sesuai dengan cara bisnismu menerima pesanan.</p></div><a class="text-link" href="/harga">Lihat paket &amp; harga ↗</a></div>
     <PackagePricing />
-    <div class="compact-studio"><div id="tentang"><h3>Dibuat untuk brand kamu</h3><p>Kami tidak sekadar memasang template. Struktur, tampilan, dan alur belanja disusun mengikuti produk serta cara bisnismu menerima pesanan.</p></div><div id="proses"><h3>Dari obrolan sampai online</h3><p>Kita bahas kebutuhan, susun desain, bangun dan uji websitenya, lalu bantu sampai siap digunakan.</p><a class="text-link" href="/layanan">Lihat cara kami bekerja ↗</a></div></div>
+    <div class="compact-studio"><div id="tentang"><h3>Dibuat untuk brand kamu</h3><p>Kami tidak sekadar memasang template. Struktur, tampilan, dan alur belanja disusun mengikuti produk serta cara bisnismu menerima pesanan.</p></div><div id="proses"><h3>Dari obrolan sampai online</h3><p>Kita bahas kebutuhan bisnismu, susun desain, bangun websitenya, lalu bantu sampai siap digunakan menerima pesanan.</p><a class="text-link" href="/layanan">Lihat cara kami bekerja ↗</a></div></div>
   </section>
 
   <section class="section wrap homepage-faq" aria-labelledby="faq-heading">

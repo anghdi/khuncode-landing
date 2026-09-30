@@ -52,6 +52,17 @@
 .message-preview { background: #f2f5fb; border-radius: 10px; display: flex; align-items: center; gap: 11px; padding: 11px; margin-top: 10px; }.message-preview>span { width: 29px; height: 29px; display: grid; place-items: center; background: #dbe7ff; border-radius: 50%; color: #104ee8; }.message-preview p { font-size: 10px; line-height: 1.6; }
 .message-footer { display: flex; align-items: center; gap: 6px; font-size: 8px; color: #59697b; margin-top: 10px; }.message-dot { width: 5px; height: 5px; background: #104ee8; border-radius: 50%; }
 .storefront-showcase figcaption { position: absolute; bottom: 0; left: 0; right: 0; z-index: 3; background: #fff; padding-top: 9px; font-size: 8px; color: #77818e; text-align: center; min-height: 23px; }
+.owned-channel-section { padding-block: 58px 64px; border-bottom: 1px solid var(--line); }
+.owned-channel-heading { max-width: 680px; margin-bottom: 32px; }
+.owned-channel-heading .eyebrow { margin-bottom: 10px; }
+.owned-channel-heading h2 { font-size: clamp(28px,3.2vw,44px); letter-spacing: -.045em; line-height: 1.18; margin: 0; }
+.owned-channel-heading h2 em { font-family: inherit; font-weight: 400; font-style: normal; color: var(--accent); }
+.owned-channel-heading .section-intro { margin-top: 14px; color: var(--muted); font-size: 13px; line-height: 1.85; max-width: 620px; }
+.channel-benefits-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
+.channel-benefit-card { background: #f8faff; border: 1px solid #e2eaf7; border-radius: 18px; padding: 26px 24px; display: flex; flex-direction: column; }
+.channel-benefit-num { font-size: 11px; font-weight: 700; color: var(--accent); letter-spacing: .08em; margin-bottom: 16px; }
+.channel-benefit-card h3 { font-size: 19px; font-weight: 600; letter-spacing: -.03em; margin: 0 0 10px; color: #141b29; }
+.channel-benefit-card p { font-size: 13px; line-height: 1.75; color: var(--muted); margin: 0; }
 .featured-work { padding-block: 58px 64px; border-bottom: 1px solid var(--line); }
 .featured-work-heading { display: flex; justify-content: space-between; align-items: end; gap: 30px; margin-bottom: 25px; }
 .featured-work-heading .eyebrow { margin-bottom: 10px; }.featured-work-heading h2 { max-width: 620px; font-size: clamp(28px,3vw,42px); letter-spacing: -.045em; }
@@ -112,6 +123,13 @@
  .tile-catalog { top: 172px; left: 0; width: 128px; padding: 12px; }.tile-catalog strong { font-size: 17px; }.tile-catalog>span:last-of-type { font-size: 8px; }.catalog-lines { display: none; }
  .tile-checkout { top: 43px; right: 0; width: 125px; min-height: 88px; padding: 12px; }.tile-checkout strong { font-size: 16px; }.tile-caption { font-size: 6px; }.checkout-icon { display: none; }.tile-checkout div>span:last-child { font-size: 7px; line-height: 1.7; display: block; }
  .storefront-showcase figcaption { font-size: 7px; padding-top: 7px; }
+ .owned-channel-section { padding-block: 42px; }
+ .owned-channel-heading { margin-bottom: 24px; }
+ .owned-channel-heading h2 { font-size: 30px; }
+ .channel-benefits-grid { grid-template-columns: 1fr; gap: 14px; }
+ .channel-benefit-card { padding: 20px; border-radius: 16px; }
+ .channel-benefit-card h3 { font-size: 17px; }
+ .channel-benefit-card p { font-size: 12px; }
  .featured-work { padding-block: 42px; }.featured-work-heading { align-items: start; flex-direction: column; gap: 12px; margin-bottom: 20px; }.featured-work-heading h2 { font-size: 30px; }.featured-work-grid { grid-template-columns: 1fr; gap: 16px; }.featured-project-copy h3+p { min-height: 0; }
  .reference-home .compact-offers { padding-top: 36px; }
  .reference-home .section-intro { font-size: 12px; }
