@@ -10,6 +10,6 @@ const { detailed = false } = Astro.props;
   <div class="package-amount"><span>{plan.starting ? 'Mulai dari' : 'Biaya pembuatan'}</span><strong>Rp{plan.price}</strong></div>
   <ul class="package-summary"><li>{plan.capacity}</li><li>{plan.revision}</li><li>{plan.highlight}</li></ul>
   {detailed ? <details class="package-features"><summary>Lihat semua fitur <span aria-hidden="true">+</span></summary><p class="package-scope">{plan.scopeNote}</p><ul>{plan.features.map(feature => <li>{feature}</li>)}</ul></details> : <a class="package-detail-link" href={`/harga#${plan.id}`}>Lihat semua fitur ↗</a>}
-  <a class="button package-button" href={createWhatsAppUrl(createPackageInquiryMessage(plan.name, plan.price, plan.starting))} target="_blank" rel="noopener noreferrer" data-track-cta="whatsapp" data-location={`package-${plan.id}`}>{plan.starting ? 'Konsultasi kebutuhan' : `Konsultasi ${plan.name}`} <span aria-hidden="true">↗</span></a>
+  <a class="button package-button" href={createWhatsAppUrl(createPackageInquiryMessage(plan.name, plan.price, plan.starting))} target="_blank" rel="noopener noreferrer" data-track-cta="whatsapp" data-location={`package-${plan.id}`}>{plan.starting ? 'Konsultasi kebutuhan' : `Tanya paket ${plan.name}`} <span aria-hidden="true">↗</span></a>
 </article>)}</div>
 <aside class="package-costs" aria-label="Biaya untuk semua paket"><p><strong>Deploy + maintenance</strong><span>Rp100.000/bulan untuk semua paket.</span></p><p><strong>Domain</strong><span>Dibayar terpisah sesuai domain yang dipilih client.</span></p></aside>

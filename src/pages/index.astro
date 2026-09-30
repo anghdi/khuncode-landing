@@ -6,9 +6,9 @@ import { createWhatsAppUrl } from '../data/whatsapp';
 import '../styles/reference-home.css';
 const contact = createWhatsAppUrl();
 const projects = [
-  { name: 'Rhodes Apparel', category: 'Fashion E-Commerce', screenshot: '/project-rhodes.webp', domain: 'rhodesapparel.id', description: 'Katalog fashion dengan navigasi kategori, pencarian, akun pelanggan, dan keranjang.' },
-  { name: 'Georgios Women', category: 'Fashion E-Commerce', screenshot: '/project-georgios.webp', domain: 'georgioswomen.com', description: 'Toko online fashion dengan koleksi produk, pencarian, dan shopping bag.' },
-  { name: 'The Gratitude Show', category: 'Event & Ticketing', screenshot: '/project-gratitude.webp', domain: 'thegratitudeshow.com', description: 'Platform event dengan jadwal pertunjukan, pemesanan tiket, pembayaran, dan akses QR.' },
+  { name: 'Rhodes Apparel', category: 'Fashion e-commerce', screenshot: '/project-rhodes.webp', domain: 'rhodesapparel.id', description: 'Katalog produk, pilihan varian, dan pemesanan melalui WhatsApp.' },
+  { name: 'Georgios Women', category: 'Fashion e-commerce', screenshot: '/project-georgios.webp', domain: 'georgioswomen.com', description: 'Koleksi produk dengan pencarian, shopping bag, dan pemesanan.' },
+  { name: 'The Gratitude Show', category: 'Event ticketing', screenshot: '/project-gratitude.webp', domain: 'thegratitudeshow.com', description: 'Informasi acara, jadwal pertunjukan, dan pembelian tiket.' },
 ];
 const faqs = [
   { question: 'Berapa lama proses pengerjaannya?', answer: 'Waktu pengerjaan mengikuti jumlah halaman, produk, fitur, serta kesiapan materi dari client. Estimasi jadwal disepakati setelah kebutuhan dipetakan.' },
@@ -32,9 +32,9 @@ const structuredData = {
     <div class="reference-hero-copy">
       <p class="eyebrow hero-enter">WEBSITE E-COMMERCE UNTUK BRAND LOKAL</p>
       <h1 class="hero-enter">Produkmu layak tampil menarik.<br /><em>Belanjanya juga harus mudah.</em></h1>
-      <p class="reference-description hero-enter">Kami merancang toko online yang rapi, cepat, dan nyaman dipakai—<br class="desktop-break" />mulai dari katalog dengan order WhatsApp sampai checkout langsung.</p>
-      <p class="hero-offer hero-enter"><strong>Paket mulai Rp1,5 juta</strong><span>Konsultasi kebutuhan tanpa biaya · Tidak wajib langsung membeli</span></p>
-      <div class="reference-actions hero-enter"><a class="button" href={contact} target="_blank" rel="noopener noreferrer" data-track-cta="whatsapp" data-location="homepage-hero">Konsultasi paket via WhatsApp <span aria-hidden="true">↗</span></a><a class="reference-secondary" href="#harga">Lihat paket &amp; harga</a></div>
+      <p class="reference-description hero-enter"><strong>Bikin pelanggan lihat produk, harga, dan cara order tanpa harus tanya satu-satu lewat chat.</strong><span>Kami merancang toko online yang rapi, cepat, dan nyaman dipakai—mulai dari katalog dengan order WhatsApp sampai checkout langsung.</span></p>
+      <p class="hero-offer hero-enter"><strong>Mulai Rp1,5 juta</strong><span>Konsultasi kebutuhan tanpa biaya · Tidak wajib langsung membeli</span></p>
+      <div class="reference-actions hero-enter"><a class="button" href={contact} target="_blank" rel="noopener noreferrer" data-track-cta="whatsapp" data-location="homepage-hero">Konsultasi via WhatsApp <span aria-hidden="true">↗</span></a><a class="reference-secondary" href="#harga">Lihat paket &amp; harga</a></div>
     </div>
     <StorefrontShowcase />
   </section>
@@ -47,7 +47,7 @@ const structuredData = {
   </section>
 
   <section id="harga" class="section wrap compact-offers">
-    <div class="section-heading"><div><p class="eyebrow">PAKET TOKO ONLINE</p><h2>Mulai dari cara kamu berjualan.</h2><p class="section-intro">Butuh katalog sederhana atau checkout lengkap? Pilih fondasinya dulu, lalu desain kami sesuaikan dengan brand kamu.</p></div><a class="text-link" href="/harga">Bandingkan semua fitur ↗</a></div>
+    <div class="section-heading"><div><p class="eyebrow">PAKET TOKO ONLINE</p><h2>Mulai dari cara kamu berjualan.</h2><p class="section-intro">Katalog dengan order WhatsApp, checkout langsung, atau alur khusus. Pilih yang paling sesuai dengan cara bisnismu menerima pesanan.</p></div><a class="text-link" href="/harga">Lihat paket &amp; harga ↗</a></div>
     <PackagePricing />
     <div class="compact-studio"><div id="tentang"><h3>Dibuat untuk brand kamu</h3><p>Kami tidak sekadar memasang template. Struktur, tampilan, dan alur belanja disusun mengikuti produk serta cara bisnismu menerima pesanan.</p></div><div id="proses"><h3>Dari obrolan sampai online</h3><p>Kita bahas kebutuhan, susun desain, bangun dan uji websitenya, lalu bantu sampai siap digunakan.</p><a class="text-link" href="/layanan">Lihat cara kami bekerja ↗</a></div></div>
   </section>
