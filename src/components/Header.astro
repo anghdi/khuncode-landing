@@ -1,17 +1,9 @@
 ---
+import { createWhatsAppUrl } from '../data/whatsapp';
 interface Props { campaign?: boolean; }
 const { campaign = false } = Astro.props;
 const links = campaign ? [{name:'Hasil kerja',href:'/ecommerce#hasil-kerja'},{name:'Kontak',href:'/kontak'}] : [{name:'Layanan',href:'/layanan'},{name:'Portfolio',href:'/portfolio'},{name:'Harga',href:'/harga'},{name:'Proses',href:'/#proses'},{name:'Tentang',href:'/#tentang'},{name:'Kontak',href:'/kontak'}];
-const waMessage = `Halo KhunCode, saya tertarik membuat website toko online.
-
-Nama bisnis:
-Produk yang dijual:
-Jumlah produk:
-Sistem pesanan: WhatsApp / checkout
-Target website selesai:
-
-Saya ingin konsultasi paket yang cocok.`;
-const waLink = `https://wa.me/6285117304509?text=${encodeURIComponent(waMessage)}`;
+const waLink = createWhatsAppUrl();
 ---
 <header class="site-header floating-header"><div class="wrap header-inner">
   <a class="wordmark" href="/" aria-label="KhunCode — Beranda">khun<span>code</span></a>

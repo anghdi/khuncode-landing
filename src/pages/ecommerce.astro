@@ -1,7 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { createWhatsAppUrl } from '../data/whatsapp';
 
-const contact = 'https://wa.me/6285117304509?text=' + encodeURIComponent('Halo KhunCode, saya ingin diskusi paket toko online.\nPaket yang diminati: \nNama brand: \nJenis produk: \nKebutuhan website: ');
+const contact = createWhatsAppUrl();
 const projects = [
   { name: 'Rhodes Apparel', image: '/rhodes.jpeg', domain: 'rhodesapparel.id', tone: 'rhodes' },
   { name: 'Georgios Women', image: '/georgios.png', domain: 'georgioswomen.com', tone: 'georgios' },
@@ -20,7 +21,7 @@ const levels = [
         <h1>Mulai jualan online.<br /><em>Sesuai cara bisnismu.</em></h1>
         <p class="hero-description">Mulai dari katalog dengan pemesanan WhatsApp sampai e-commerce dengan cart, checkout, dan pengelolaan pesanan.</p>
         <div class="campaign-price"><span>Paket mulai dari</span><strong>Rp1.500.000</strong><p>Deploy + maintenance Rp100.000/bulan. Domain terpisah.</p></div>
-        <div class="hero-actions"><a class="button" href={contact} target="_blank" rel="noopener noreferrer">Diskusikan toko online <span aria-hidden="true">↗</span></a><a class="text-link" href="#hasil-kerja">Lihat hasil kerja ↓</a></div>
+        <div class="hero-actions"><a class="button" href={contact} target="_blank" rel="noopener noreferrer" data-track-cta="whatsapp" data-location="campaign-hero">Konsultasi paket <span aria-hidden="true">↗</span></a><a class="text-link" href="#hasil-kerja">Lihat hasil kerja ↓</a></div>
         <p class="hero-note">Ceritakan brand dan kebutuhanmu. Lingkup serta harga disepakati sebelum mulai.</p>
       </div>
       <figure class="hero-visual"><div class="hero-photo"><img src="/studio-hero.webp" srcset="/studio-hero-mobile.webp 640w, /studio-hero.webp 1536w" sizes="(max-width: 767px) calc(100vw - 40px), 48vw" width="1536" height="1024" alt="Ilustrasi toko online fashion pada laptop di meja kerja brand" fetchpriority="high" /></div><figcaption>Ilustrasi pengalaman toko online untuk brand.</figcaption></figure>
@@ -37,7 +38,7 @@ const levels = [
       <p class="pricing-note">Starter Store menerima order via WhatsApp. Online Store mencakup cart & checkout. Custom Commerce fitur spesifik disepakati sebelum pengerjaan. <a href="/harga">Bandingkan semua paket ↗</a></p>
     </div></section>
 
-    <section class="final-cta"><div class="wrap"><p class="eyebrow">LANGKAH PERTAMA UNTUK TOKO ONLINE KAMU</p><h2>Siap punya <em>toko online?</em></h2><div class="final-cta-bottom"><p>Starter Store Rp1.500.000 · Online Store Rp2.500.000 · Custom Commerce mulai Rp4.000.000.<br />Domain terpisah. Deploy + maintenance Rp100.000/bulan.</p><a class="button button-light" href={contact} target="_blank" rel="noopener noreferrer">Diskusikan via WhatsApp <span aria-hidden="true">↗</span></a></div></div></section>
-    <div class="campaign-mobile-bar"><span>Paket toko online<strong>Mulai Rp1,5 juta</strong></span><a class="button" href={contact} target="_blank" rel="noopener noreferrer">Diskusi WhatsApp ↗</a></div>
+    <section class="final-cta"><div class="wrap"><p class="eyebrow">LANGKAH PERTAMA UNTUK TOKO ONLINE KAMU</p><h2>Siap punya <em>toko online?</em></h2><div class="final-cta-bottom"><p>Starter Store Rp1.500.000 · Online Store Rp2.500.000 · Custom Commerce mulai Rp4.000.000.<br />Domain terpisah. Deploy + maintenance Rp100.000/bulan.</p><a class="button button-light" href={contact} target="_blank" rel="noopener noreferrer" data-track-cta="whatsapp" data-location="campaign-final">Konsultasi via WhatsApp <span aria-hidden="true">↗</span></a></div></div></section>
+    <div class="campaign-mobile-bar"><span>Paket toko online<strong>Mulai Rp1,5 juta</strong></span><a class="button" href={contact} target="_blank" rel="noopener noreferrer" data-track-cta="whatsapp" data-location="campaign-mobile-bar">Konsultasi ↗</a></div>
   </div>
 </Layout>

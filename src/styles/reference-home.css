@@ -51,14 +51,18 @@
 .message-preview { background: #f2f5fb; border-radius: 10px; display: flex; align-items: center; gap: 11px; padding: 11px; margin-top: 10px; }.message-preview>span { width: 29px; height: 29px; display: grid; place-items: center; background: #dbe7ff; border-radius: 50%; color: #104ee8; }.message-preview p { font-size: 10px; line-height: 1.6; }
 .message-footer { display: flex; align-items: center; gap: 6px; font-size: 8px; color: #59697b; margin-top: 10px; }.message-dot { width: 5px; height: 5px; background: #104ee8; border-radius: 50%; }
 .storefront-showcase figcaption { position: absolute; bottom: 0; left: 0; right: 0; z-index: 3; background: #fff; padding-top: 9px; font-size: 8px; color: #77818e; text-align: center; min-height: 23px; }
-.reference-home .reference-clients { position: relative; text-align: center; padding-block: 25px 28px; border-bottom: 1px solid var(--line); }
-.reference-clients h2 { font-size: 10px; font-weight: 400; color: #78808c; margin-bottom: 10px; }
-.reference-client-row { display: flex; justify-content: center; align-items: center; gap: clamp(25px,7vw,100px); }
-.reference-client-logo { width: 180px; height: 65px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-.reference-client-logo img { position: absolute; object-fit: contain; width: 160px; height: 160px; max-width: none; }
-.reference-client-logo.logo-rhodes img { width: 250px; height: 250px; }.reference-client-logo.logo-gratitude img { width: 90px; height: 60px; }
-.reference-client-logo.logo-georgios { border-radius: 8px; background: #c9beb0; height: 50px; }
-.reference-portfolio-link { display: inline-flex; align-items: center; min-height: 36px; font-size: 10px; color: #52637e; text-decoration: underline; text-underline-offset: 3px; margin-top: 4px; }
+.featured-work { padding-block: 58px 64px; border-bottom: 1px solid var(--line); }
+.featured-work-heading { display: flex; justify-content: space-between; align-items: end; gap: 30px; margin-bottom: 25px; }
+.featured-work-heading .eyebrow { margin-bottom: 10px; }.featured-work-heading h2 { max-width: 620px; font-size: clamp(28px,3vw,42px); letter-spacing: -.045em; }
+.featured-work-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; }
+.featured-project { min-width: 0; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; background: #fff; }
+.featured-project-preview { position: relative; display: block; aspect-ratio: 1.44; overflow: hidden; background: #eef2f8; }
+.featured-project-preview img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform .35s ease; }
+.featured-project-preview>span { position: absolute; right: 13px; bottom: 13px; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: #fff; color: var(--accent); box-shadow: 0 5px 15px #0e234322; }
+.featured-project:hover .featured-project-preview img { transform: scale(1.025); }
+.featured-project-copy { padding: 20px; }.featured-project-copy>p:first-child { color: var(--accent); font-size: 9px; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; }
+.featured-project-copy h3 { margin-top: 8px; font-size: 20px; letter-spacing: -.035em; }.featured-project-copy h3+p { min-height: 66px; margin-top: 10px; color: var(--muted); font-size: 12px; line-height: 1.75; }
+.featured-project-copy a { display: inline-flex; align-items: center; min-height: 40px; margin-top: 12px; font-size: 11px; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
 .reference-home .compact-offers { border-top: 0; padding-top: 48px; }
 .reference-home .section-intro { max-width: 610px; margin-top: 13px; color: #626b7e; font-size: 13px; line-height: 1.8; }
 .reference-home .package-card { border-radius: 16px; }.reference-home .package-button { min-height: 45px; }
@@ -107,8 +111,7 @@
  .tile-catalog { top: 172px; left: 0; width: 128px; padding: 12px; }.tile-catalog strong { font-size: 17px; }.tile-catalog>span:last-of-type { font-size: 8px; }.catalog-lines { display: none; }
  .tile-checkout { top: 43px; right: 0; width: 125px; min-height: 88px; padding: 12px; }.tile-checkout strong { font-size: 16px; }.tile-caption { font-size: 6px; }.checkout-icon { display: none; }.tile-checkout div>span:last-child { font-size: 7px; line-height: 1.7; display: block; }
  .storefront-showcase figcaption { font-size: 7px; padding-top: 7px; }
- .reference-home .reference-clients { padding-block: 22px 18px; }.reference-clients h2 { font-size: 9px; }
- .reference-client-row { gap: 12px; }.reference-client-logo { width: calc((100% - 24px)/3); height: 55px; }.reference-client-logo img { width: 110px; height: 110px; }.reference-client-logo.logo-rhodes img { width: 143px; height: 143px; }.reference-client-logo.logo-gratitude img { width: 65px; height: 49px; }.reference-client-logo.logo-georgios { height: 42px; }
+ .featured-work { padding-block: 42px; }.featured-work-heading { align-items: start; flex-direction: column; gap: 12px; margin-bottom: 20px; }.featured-work-heading h2 { font-size: 30px; }.featured-work-grid { grid-template-columns: 1fr; gap: 16px; }.featured-project-copy h3+p { min-height: 0; }
  .reference-home .compact-offers { padding-top: 36px; }
  .reference-home .section-intro { font-size: 12px; }
  .reference-home .package-card { grid-template-columns: minmax(0,1fr) auto; }

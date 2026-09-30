@@ -1,11 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { packages } from '../data/packages';
+import { createPackageInquiryMessage, createWhatsAppUrl } from '../data/whatsapp';
 
 const whatsappUrl = (plan: typeof packages[number]) =>
-  `https://wa.me/6285117304509?text=${encodeURIComponent(
-    `Halo KhunCode, saya tertarik paket ${plan.name} ${plan.starting ? 'mulai ' : ''}Rp${plan.price}. Saya ingin mendiskusikan kebutuhan toko online saya.`
-  )}`;
+  createWhatsAppUrl(createPackageInquiryMessage(plan.name, plan.price, plan.starting));
 ---
 
 <Layout title="Layanan Toko Online — KhunCode" description="Pilih Starter Store, Online Store, atau Custom Commerce sesuai cara customer berbelanja dan kebutuhan operasional bisnis kamu.">
@@ -30,7 +29,7 @@ const whatsappUrl = (plan: typeof packages[number]) =>
             <p>{plan.description}</p>
             <div class="service-package-price"><span>{plan.starting ? 'Mulai dari' : 'Biaya pembuatan'}</span><strong>Rp{plan.price}</strong></div>
             <ul class="service-package-summary"><li>{plan.capacity}</li><li>{plan.revision}</li><li>{plan.highlight}</li></ul>
-            <a class="button" href={whatsappUrl(plan)} target="_blank" rel="noopener noreferrer">Diskusikan {plan.name} <span aria-hidden="true">↗</span></a>
+            <a class="button" href={whatsappUrl(plan)} target="_blank" rel="noopener noreferrer" data-track-cta="whatsapp" data-location={`service-${plan.id}`}>Konsultasi {plan.name} <span aria-hidden="true">↗</span></a>
           </div>
           <div class="feature-panel">
             <h3>Yang termasuk dalam paket</h3>

@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
+import CookieConsent from '../components/CookieConsent.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -10,6 +11,7 @@ interface Props {
   ogImage?: string;
   campaign?: boolean;
   referenceHome?: boolean;
+  structuredData?: Record<string, unknown>;
 }
 
 const {
@@ -17,6 +19,7 @@ const {
   description = "KhunCode membantu brand dan bisnis membuat website e-commerce, business website, ticketing, booking, dan custom website.",
   campaign = false,
   referenceHome = false,
+  structuredData,
   ogImage = "/logo.png"
 } = Astro.props;
 
@@ -49,30 +52,30 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://khuncode
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL(ogImage, canonicalURL)} />
+    <meta property="og:locale" content="id_ID" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(ogImage, canonicalURL)} />
+    {structuredData && <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, '\\u003c')} />}
 
-    <!-- Meta Pixel Code -->
+    <!-- Meta Pixel loads only after explicit consent. -->
     <script is:inline>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '1935478463781174');
-      fbq('track', 'PageView');
+      window.khuncodeStartMetaPixel = function () {
+        if (window.fbq) return;
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+        (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        window.fbq('init', '1935478463781174');
+        window.fbq('track', 'PageView');
+      };
+      try { if (localStorage.getItem('khuncode_cookie_consent') === 'accepted') window.khuncodeStartMetaPixel(); } catch {}
     </script>
-    <!-- End Meta Pixel Code -->
 
   </head>
   <body class:list={{ "campaign-page": campaign, "reference-home-page": referenceHome }}>
-    <!-- Meta Pixel Code -->
-    <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1935478463781174&ev=PageView&noscript=1"
-      alt=""
-    /></noscript>
-    <!-- End Meta Pixel Code -->
     <a class="skip-link" href="#main-content">Langsung ke konten</a>
     <div class="site-shell">
       <Header campaign={campaign} />
@@ -82,6 +85,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://khuncode
       <Footer />
     </div>
     {!campaign && <WhatsAppButton />}
+    <CookieConsent />
     <script>
       import '../scripts/lead-tracking';
 
