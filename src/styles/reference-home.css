@@ -11,6 +11,8 @@
 .reference-hero-copy h1 { margin: 0; font-family: Georgia, 'Times New Roman', serif; font-weight: 400; font-size: clamp(42px,4.7vw,68px); line-height: 1.08; letter-spacing: -.045em; color: #141b29; }
 .reference-hero-copy h1 em { font-family: inherit; font-weight: 400; font-style: normal; letter-spacing: inherit; color: #141b29; }
 .reference-description { font-size: 14px; line-height: 1.85; color: #5d6472; max-width: 570px; margin: 22px auto 0; }
+.hero-offer { display: flex; justify-content: center; align-items: center; gap: 10px 18px; flex-wrap: wrap; margin: 14px auto 0; color: #5d6472; font-size: 11px; }
+.hero-offer strong { color: #104ee8; font-size: 12px; }
 .reference-actions { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 23px; }
 .reference-actions .button,.reference-secondary { min-height: 46px; padding: 13px 23px; border-radius: 999px; font-size: 12px; font-weight: 500; gap: 17px; }
 .reference-secondary { display: inline-flex; justify-content: center; align-items: center; border: 1px solid #222b3b; transition: background .2s, border-color .2s; }
@@ -60,6 +62,18 @@
 .reference-home .compact-offers { border-top: 0; padding-top: 48px; }
 .reference-home .section-intro { max-width: 610px; margin-top: 13px; color: #626b7e; font-size: 13px; line-height: 1.8; }
 .reference-home .package-card { border-radius: 16px; }.reference-home .package-button { min-height: 45px; }
+.homepage-faq { display: grid; grid-template-columns: .8fr 1.2fr; gap: 70px; border-top: 1px solid var(--line); }
+.faq-intro h2 { max-width: 430px; margin-top: 10px; font-size: clamp(30px,3.4vw,48px); letter-spacing: -.045em; }
+.faq-intro>p:last-child { max-width: 440px; margin-top: 17px; color: var(--muted); font-size: 13px; line-height: 1.8; }
+.faq-list details { border-bottom: 1px solid var(--line); }
+.faq-list summary { display: flex; justify-content: space-between; gap: 20px; align-items: center; padding: 20px 2px; cursor: pointer; list-style: none; font-size: 14px; font-weight: 600; }
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary span { color: var(--accent); transition: transform .2s; }
+.faq-list details[open] summary span { transform: rotate(45deg); }
+.faq-list details p { padding: 0 34px 20px 2px; color: var(--muted); font-size: 13px; line-height: 1.85; }
+.faq-action { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 24px 28px; border-radius: 18px; background: #f1f5ff; }
+.faq-action div { display: grid; gap: 5px; }.faq-action strong { font-size: 15px; }.faq-action span { color: var(--muted); font-size: 12px; }
+.faq-action .button { flex-shrink: 0; border-radius: 999px; font-size: 11px; }
 .reference-home .final-cta { margin-inline: auto; background: #f1f5ff; color: #152846; }
 .reference-home .final-cta h2 em { color: #104ee8; }.reference-home .final-cta .eyebrow,.reference-home .final-cta-bottom p { color: #55647f; }
 .reference-home .final-cta .button-light { background: #104ee8; color: white; border-radius: 999px; }.reference-home .final-cta .button-light:hover { background: #0c3cbb; }
@@ -83,6 +97,7 @@
  .reference-hero-copy .eyebrow { font-size: 8px; margin-bottom: 18px; }
  .reference-hero-copy h1 { font-size: clamp(35px,6.3vw,48px); line-height: 1.12; letter-spacing: -.045em; }
  .reference-description { font-size: 13px; line-height: 1.8; max-width: 390px; margin-top: 18px; }.desktop-break { display: none; }
+ .hero-offer { display: grid; gap: 4px; font-size: 10px; }.hero-offer strong { font-size: 11px; }
  .reference-actions { gap: 9px; margin-top: 21px; }.reference-actions .button,.reference-secondary { font-size: 11px; padding: 12px 17px; min-height: 44px; gap: 10px; }
  .storefront-showcase { height: 300px; margin-top: 23px; }
  .store-phone { width: 194px; height: 360px; top: 19px; border-radius: 30px; padding: 7px; }.phone-screen { border-radius: 22px; }
@@ -99,6 +114,7 @@
  .reference-home .package-card { grid-template-columns: minmax(0,1fr) auto; }
  .reference-home .package-name { font-size: 22px; overflow-wrap: anywhere; }
  .reference-home .package-amount strong { font-size: 22px; }
+ .homepage-faq { grid-template-columns: 1fr; gap: 24px; }.faq-intro h2 { font-size: 30px; }.faq-action { align-items: stretch; flex-direction: column; padding: 22px; }.faq-action .button { width: 100%; }
 }
 @media(max-width:380px) {
  .reference-hero-copy h1 { font-size: 33px; }.reference-actions { gap: 8px; }.reference-actions .button,.reference-secondary { padding-inline: 13px; font-size: 10px; }

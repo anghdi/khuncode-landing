@@ -13,7 +13,7 @@ for (const key of attributionKeys) {
 export function trackWhatsAppClick(location: string) {
   const detail = { cta_location: location, page_path: window.location.pathname, ...campaign };
   window.dispatchEvent(new CustomEvent('khuncode:whatsapp-click', { detail }));
-  try { trackingWindow.fbq?.('track', 'Lead', detail); } catch { /* Navigation must still work. */ }
+  try { trackingWindow.fbq?.('trackCustom', 'WhatsAppClick', detail); } catch { /* Navigation must still work. */ }
   try { trackingWindow.gtag?.('event', 'click_whatsapp', detail); } catch { /* Navigation must still work. */ }
 }
 // Keep campaign labels when a visitor moves to another internal marketing page.

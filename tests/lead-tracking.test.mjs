@@ -14,7 +14,7 @@ function run(search, fail = false) {
     document: { querySelectorAll: () => links, addEventListener: (name, fn) => { listeners[name] = fn; } }
   };
   vm.runInNewContext(code, context);
-  const target = new Element(); target.closest = () => ({ dataset: { location: 'ecommerce-hero' } });
+  const target = new Element(); target.closest = () => ({ href: 'https://wa.me/6285117304509', dataset: { trackCta: 'whatsapp', location: 'ecommerce-hero' } });
   listeners.click({ target });
   return { events, remote, links, context };
 }

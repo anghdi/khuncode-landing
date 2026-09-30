@@ -7,8 +7,8 @@ const waLink = `https://wa.me/6285117304509?text=${encodeURIComponent(campaign ?
 <header class="site-header floating-header"><div class="wrap header-inner">
   <a class="wordmark" href="/" aria-label="KhunCode — Beranda">khun<span>code</span></a>
   <nav class="desktop-nav" aria-label="Navigasi utama">{links.map(link => <a href={link.href} aria-current={Astro.url.pathname === link.href ? 'page' : undefined}>{link.name}</a>)}</nav>
-  <a class="header-cta" href={waLink} target="_blank" rel="noopener noreferrer">Diskusikan Project <span aria-hidden="true">↗</span></a>
-  <details class="mobile-menu" id="mobile-menu"><summary aria-label="Menu navigasi"><span></span><span></span></summary><nav class="mobile-menu-panel" aria-label="Navigasi mobile">{links.map(link => <a href={link.href} aria-current={Astro.url.pathname === link.href ? 'page' : undefined}>{link.name}</a>)}<a class="mobile-contact" href={waLink} target="_blank" rel="noopener noreferrer">Diskusikan Project ↗</a></nav></details>
+  <a class="header-cta" href={waLink} target="_blank" rel="noopener noreferrer" data-track-cta="whatsapp" data-location="header">Konsultasi Project <span aria-hidden="true">↗</span></a>
+  <details class="mobile-menu" id="mobile-menu"><summary aria-label="Menu navigasi"><span></span><span></span></summary><nav class="mobile-menu-panel" aria-label="Navigasi mobile">{links.map(link => <a href={link.href} aria-current={Astro.url.pathname === link.href ? 'page' : undefined}>{link.name}</a>)}<a class="mobile-contact" href={waLink} target="_blank" rel="noopener noreferrer" data-track-cta="whatsapp" data-location="mobile-menu">Konsultasi Project ↗</a></nav></details>
 </div></header>
 <script>
   const menu = document.querySelector<HTMLDetailsElement>('#mobile-menu');
